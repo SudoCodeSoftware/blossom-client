@@ -1,6 +1,17 @@
 function loginInit() {
     currentPage = "LOGIN";
     
+     $("#slideshow > div:gt(0)").hide();
+
+    setInterval(function() { 
+      $('#slideshow > div:first')
+        .fadeOut(2000)
+        .next()
+        .fadeIn(500)
+        .end()
+        .appendTo('#slideshow');
+    },  6000);
+    
     document.getElementById("mainloader").style.visibility = 'hidden';
     //Login on the login page clicked
     $("#login").click(function() {
