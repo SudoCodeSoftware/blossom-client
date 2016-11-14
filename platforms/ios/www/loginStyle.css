@@ -1,0 +1,453 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Importing Fonts */
+
+@font-face {
+    font-family: SpecialText;
+    src: url(res/assets/manteka.ttf);
+}
+@font-face {
+    font-family: RegularText;
+    src: url(res/assets/Bariol_Regular.otf);
+}
+
+
+
+/* Main Setup */
+
+html {
+    font-family: RegularText;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #eeeeef;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+.splash {
+    background-color: #16a085;
+    color:white;
+}
+
+.branding-image {
+    height: 30%;
+}
+
+/* Logo */
+
+.titleImage{
+    height: 20%;
+    width: auto;
+    display: block;
+    margin: 8vh auto;
+    z-index: 3;
+}
+
+
+
+/* Backgound Slideshow Stuff */
+
+.blur {
+    filter: blur(3px);
+    // Browser Specific
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+}
+
+.unsw {
+    background: url("res/assets/unsw.jpeg") no-repeat center center fixed;
+    transform: scale(1.03);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-size: cover;
+    display: block;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1;
+}
+.uts {
+    background: url("res/assets/uts.jpg") no-repeat center center fixed;
+    transform: scale(1.04);
+    overflow-x: hidden; /* Get rid of the horizontal scrollbar */
+    overflow-y: hidden;
+    background-size: cover;
+    display: block;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1;
+}
+.usyd {
+    background: url("res/assets/usyd.jpg") no-repeat center center fixed;
+    transform: scale(1.01);
+    overflow-x: hidden; /* Get rid of the horizontal scrollbar */
+    overflow-y: hidden;
+    background-size: cover;
+    display: block;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1;
+}
+
+#slideshow {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+}
+
+
+
+/* Login Button & Disclaimer Stuff */
+
+.disclaimer {
+    text-shadow: 1px 1px #000000;
+    font-size: 100%;
+    color: white;
+}
+
+.tie-to-bottom {
+    width: 100%;
+    height: 25%;
+    position: fixed;
+    display: block;
+    bottom: -10px;
+    text-align:center;
+}
+
+.tie-to-bottom2 {
+    width: 100%;
+    height: 80%;
+    position: fixed;
+    display: block;
+    bottom: -10px;
+    text-align:center;
+}
+
+.tie-to-bottom3 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: block;
+    bottom: -10px;
+    text-align:center;
+}
+
+.login-button {
+    font-family: SpecialText;
+    display: block;
+    height: 40%;
+    width: 80%;
+    font-size: 120%;
+    position:relative;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #16a085;
+    border: 0;
+    border-bottom: 2px solid #14947b;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px #14947b;
+    box-shadow: inset 0 -2px #14947b;
+}
+.login-button:hover {
+    background: #169C81;
+}
+.login-button:active {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+/* Loader Stuff */
+
+.main-loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #16a085;
+    border-radius: 50%;
+    width: 10%;
+    animation: spin 2s linear infinite;
+    display: block;
+}
+.main-loader:after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+/* Notifications & Status Stuff */
+
+.infoText {
+    color: #EE6352;
+    font-size: 200%;
+    text-align: center;
+    display: block;
+}
+
+.status-area {
+    position: absolute;
+    left:0; 
+    right:0;
+    text-align: center;
+    z-index: 6;
+}
+
+
+/* Placement Stuff */
+
+.centered{
+    display: block;
+    margin: 3vh auto;
+}
+
+.facebook-stuff {
+    position: absolute;
+    text-align: right;
+    top:10px;
+    right:10px;
+}
+
+.spacer-5 {
+    height: 5%;
+}
+
+.spacer-50 {
+    height: 50%;
+}
+
+/* Login Page Stuff */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Stuff to Move to styleMain.css */
+
+.pageDiv {
+    width: 100%;
+    height: 100%;
+    /*transform: rotateY(90deg);*/  /* Start off side on */
+    /*-webkit-transform: rotateY(90deg);*/ /* Of course CSS had to find a way to make this irritating */
+}
+
+.listBackground {
+    background-color: #ffffff;
+    width: 75%;
+    height: 200%;
+    overflow-y: scroll;
+}
+
+.listItem {
+    width: 100%;
+    height: 10vh;
+    line-height: 10vh;
+    display: table;
+    vertical-align: middle;
+}
+
+.listItemText {
+    font-size: 3.5vh;
+    text-align: center;
+    cursor: default;
+    -webkit-touch-callout: none;    /*Is this really necessary?...6 lines to do one thing*/
+    -webkit-user-select: none;      /*Yes, it's called cross-browser compatability - blame Microsoft*/
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.fb_reset {
+    display: block;
+    margin: 0 auto;
+}
+
+#logout {
+    position: relative;
+    display: block;
+    height: 20%;
+    width: 5%;
+    font-size: 2vh;
+    color: black;
+    margin-left: 94vw;
+    border-color: black;
+    background-color: transparent;
+}
+
+.feedback-input {
+	color:#3c3c3c;
+	font-family: RegularText;
+	font-size: 4vh;
+	border-radius: 0;
+	line-height: 100%;
+	background-color: #fbfbfb;
+	padding: 0px 0px 0px 13%;
+	width: 70%;
+    height: 8vh;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+    opacity: 0.9;
+    background-size: 5vh;
+	background-position: 4% 50%;
+	background-repeat: no-repeat;
+    box-shadow: none;
+    outline: none;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+#firstnameInput, #lastnameInput {
+	background-image: url(/res/assets/icons/name.png);
+}
+#userDOB {
+	background-image: url(/res/assets/icons/dob.png);
+}
+#preferenceInput {
+	background-image: url(/res/assets/icons/gender.png);
+}
+#zIDInput {
+	background-image: url(/res/assets/icons/id.png);
+}
+#emailInput {
+	background-image: url(/res/assets/icons/email.png);
+}
+#faculty1Input, #faculty2Input {
+	background-image: url(/res/assets/icons/faculty.png);
+}
+#degreeInput {
+	background-image: url(/res/assets/icons/degree.png);
+}
+#yearInput {
+	background-image: url(/res/assets/icons/yearofstudy.png);
+}
+
+
+.form-button {
+    font-family: SpecialText;
+    display: block;
+    height: 8vh;
+    width: 80%;
+    font-size: 120%;
+    position:relative;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #16a085;
+    border: 0;
+    border-bottom: 2px solid #14947b;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px #14947b;
+    box-shadow: inset 0 -2px #14947b;
+}
+.form-button:hover {
+    background: #169C81;
+}
+.form-button:active {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
