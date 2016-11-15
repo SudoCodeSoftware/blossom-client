@@ -1,59 +1,133 @@
 function matchInit() {
     currentPage = "MATCH";
     
-    $("#messages-side").click(function() {
-            pageTransition("messages.html", messagesInit);
-        });
+    var matches = [];
     
-    $("#addContactDiv" ).load( "addContact.html", function() {
-        //Whenever the search bar in add contact page is changed
-        $("#addContactSearchInput").on("input propertychange paste", function() {
-            var search = $("#addContactSearchInput").val();
-            if (search === "") {    //This is just because the server wants "*" for everything
-                search = "*";
-            }
-
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                data: {type: "search", search: search},
-                url: SERVER_ADDRESS,
-                success: function(data) {
-                    var names = data.split(" ");
-                    $("#addContactListBackground").html("");    //Wipe it
-                    for (var i = 0; i < names.length; i++) {
-                        $("#addContactListBackground").append("<div id=\"addContactUser" + names[i] + "\" class=\"listItem addContactListItem\"><p class=\"listItemText\">" + names[i] + "</p></div>");
-                    }
-
-                    //When a list item in the addContacts div is clicked
-                    $(".addContactListItem").click(function() {
-                        if ('#' + addContactSelected != undefined) {
-                            $(addContactSelected).css("background-color", "white");
-                        }
-
-                        addContactSelected = $(this).attr("id");
-                        $(this).css("background-color", "blue");
-                    });
-                },
-            });
+    //Chat button at top right
+    $("#messages-side").click(function() {
+        pageTransition("messages.html", messagesInit);
+    });
+    
+    //Tick button (bottom right)
+    $("#tick").click(function() {
+        $.ajax({
+            type: "POST",
+            //dataType: "json",
+            data: {
+                ato: accessToken,
+                matchId: matches[0].fb_id,
+                req_type: "ticked"
+            },
+            url: SERVER_ADDRESS + '/match.php',
+            success: function(data) {
+                console.log(data);
+            },
+        }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+            console.log(textStatus);
         });
         
-        //The back button on the addContacts page is clicked
-        $("#settings-side").click(function() {
-            pageTransition("#addContactDiv", "#contactsDiv");
-        });
-         
-        //The add contact button on the add contact page was clicked
-        $("#addContactAddContact").click(function() {
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                data: {type: "c_request_1", user1: currentUser, user2: addContactSelected.split("addContactUser")[1]},
-                url: SERVER_ADDRESS,
-                success: function(data) {
-
-                },
-            });
-        });
+        nextCard();
     });
+    
+    //Cross button (bottom left)
+    $("#cross").click(function() {
+        nextCard();
+    });
+    
+    initMatches();
+    
+    //Identical to updateMatches, except that this
+    //automatically loads the first card
+    function initMatches() {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: {
+                ato: accessToken
+            },
+            url: SERVER_ADDRESS + '/match.php',
+            success: function(data) {
+                matches = matches.concat(data);
+                nextCard();
+            },
+        }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+            console.log(textStatus);
+        });
+    }
+    
+    function updateMatches() {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: {
+                ato: accessToken
+            },
+            url: SERVER_ADDRESS + '/match.php',
+            success: function(data) {
+                matches = matches.concat(data);
+            },
+        }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+            console.log(textStatus);
+        });
+    }
+    
+    function nextCard() {
+        //There are two cards, one being visible, the other one
+        //being the buffer card that has everything loaded into it
+        //before the cards being switched
+        if ($("#match-card-1").is(":visible")) {
+            $("#card-2-name").html(matches[0].name);
+            $("#card-2-age").html(matches[0].age);
+            $("#card-2-image").css("background-image", "url('" + matches[0].photo + "')");
+            
+            $("#match-card-1").animate({
+                    opacity: 0.0
+                }, 
+                200, 
+                "linear", 
+                function() {
+                    $("#match-card-1").hide();
+                    $("#match-card-2").show();
+
+                    $("#match-card-2").animate({
+                            opacity: 1.0
+                        },
+                        200, 
+                        "linear", 
+                        function() {
+
+                        }
+                    );
+                }
+            );
+        }
+        else {
+            $("#card-1-name").html(matches[0].name);
+            $("#card-1-age").html(matches[0].age);
+            $("#card-1-image").css("background-image", "url('" + matches[0].photo + "')");
+            
+            $("#match-card-2").animate({
+                    opacity: 0.0
+                }, 
+                200, 
+                "linear", 
+                function() {
+                    $("#match-card-2").hide();
+                    $("#match-card-1").show();
+
+                    $("#match-card-1").animate({
+                            opacity: 1.0
+                        }, 
+                        200, 
+                        "linear",
+                        function() {
+                            
+                        }
+                    );
+                }
+            );
+        }
+        
+        matches.shift();
+    }
 }
