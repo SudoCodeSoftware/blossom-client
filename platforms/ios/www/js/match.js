@@ -2,6 +2,7 @@ function matchInit() {
     currentPage = "MATCH";
     
     var matches = [];
+    var matchCacheSize = 3; //how many matches before more are fetched
     
     //Chat button at top right
     $("#messages-side").click(function() {
@@ -80,6 +81,10 @@ function matchInit() {
             $("#card-2-age").html(matches[0].age);
             $("#card-2-image").css("background-image", "url('" + matches[0].photo + "')");
             
+            if (matches[0].photo === null) {
+                $("#card-1-image").css("background-color", "black");
+            }
+            
             $("#match-card-1").animate({
                     opacity: 0.0
                 }, 
@@ -101,10 +106,15 @@ function matchInit() {
                 }
             );
         }
+        
         else {
             $("#card-1-name").html(matches[0].name);
             $("#card-1-age").html(matches[0].age);
             $("#card-1-image").css("background-image", "url('" + matches[0].photo + "')");
+            
+            if (matches[0].photo === null) {
+                $("#card-1-image").css("background-color", "black");
+            }
             
             $("#match-card-2").animate({
                     opacity: 0.0
@@ -129,5 +139,9 @@ function matchInit() {
         }
         
         matches.shift();
+        
+        if (matches.length < matchCacheSize) {
+            updateMatches();
+        }
     }
 }
