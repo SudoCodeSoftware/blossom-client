@@ -1,0 +1,10 @@
+/* Importing Fonts */
+
+@font-face {
+    font-family: SpecialText;
+    src: url(../res/assets/manteka.ttf);
+}
+@font-face {
+    font-family: RegularText;
+    src: url(../res/assets/Bariol_Regular.otf);
+}
