@@ -1,7 +1,7 @@
 function matchInit() {
     currentPage = "MATCH";
     
-    var matches = [];
+    var matches = [0];  //the 0 is shifted off the end on the first card swap
     var matchCacheSize = 3; //how many matches before more are fetched
     
     //Chat button at top right
@@ -11,6 +11,7 @@ function matchInit() {
     
     //Tick button (bottom right)
     $("#tick").click(function() {
+        console.log(matches[0]);
         $.ajax({
             type: "POST",
             //dataType: "json",
@@ -21,6 +22,8 @@ function matchInit() {
             },
             url: SERVER_ADDRESS + '/match.php',
             success: function(data) {
+                $("#match-ticked-popup").load("tickPopup.html");
+                
                 console.log(data);
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
@@ -73,6 +76,8 @@ function matchInit() {
     }
     
     function nextCard() {
+        matches.shift();
+        
         //There are two cards, one being visible, the other one
         //being the buffer card that has everything loaded into it
         //before the cards being switched
@@ -137,8 +142,6 @@ function matchInit() {
                 }
             );
         }
-        
-        matches.shift();
         
         if (matches.length < matchCacheSize) {
             updateMatches();

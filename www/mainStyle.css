@@ -402,3 +402,40 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+
+
+.new_match_poppup {
+    width:100vw;
+    height:100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+}
+
+.new_match_poppup_user_image {
+    width: 30vw;
+    height: 30vw;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #14947b;
+    background-image: url("res/assets/userimage.png");
+    background-size: cover;
+}
+
+.new_match_poppup_text {
+    text-align: center;
+}
+
+
+.pad_15 {
+    width: 100%;
+    height: 15vh;
+}
+
+.pad_30 {
+    width: 100%;
+    height: 30vh;
+}
+
+
