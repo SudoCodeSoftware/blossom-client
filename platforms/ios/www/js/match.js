@@ -14,7 +14,7 @@ function matchInit() {
         console.log(matches[0]);
         $.ajax({
             type: "POST",
-            //dataType: "json",
+            dataType: "json",
             data: {
                 ato: accessToken,
                 matchId: matches[0].fb_id,
@@ -22,9 +22,9 @@ function matchInit() {
             },
             url: SERVER_ADDRESS + '/match.php',
             success: function(data) {
-                $("#match-ticked-popup").load("tickPopup.html");
-                
-                console.log(data);
+                if (data[0] != '0') {   //The other person matched
+                    $("#match-ticked-popup").load("tickPopup.html");
+                }
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus);
@@ -51,8 +51,10 @@ function matchInit() {
             },
             url: SERVER_ADDRESS + '/match.php',
             success: function(data) {
-                matches = matches.concat(data);
-                nextCard();
+                if (data[0] != '0') {   //If there are matches
+                    matches = matches.concat(data);
+                    nextCard();
+                }
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus);
@@ -77,7 +79,7 @@ function matchInit() {
     
     function nextCard() {
         matches.shift();
-        
+        console.log(matches);
         //There are two cards, one being visible, the other one
         //being the buffer card that has everything loaded into it
         //before the cards being switched
@@ -143,7 +145,7 @@ function matchInit() {
             );
         }
         
-        if (matches.length < matchCacheSize) {
+        if (matches.length <= matchCacheSize) {
             updateMatches();
         }
     }

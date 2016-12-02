@@ -16,7 +16,10 @@ $(document).ready(function() {
     }*/
     
     accessToken = window.localStorage.getItem("facebook_accessToken");
-    initApp();  //This happens in statusChangeCallback for browser
+    
+    if (device.platform != "browser") {
+        initApp();  //This happens in statusChangeCallback for browser
+    }
 });
 
 function initApp() {
@@ -28,6 +31,7 @@ function initApp() {
         },
         url: SERVER_ADDRESS + '/login.php',
         success: function(data) {
+            console.log(data[0]);
             if (data[0] === "2") {    //Username authentication failure
                 pageTransition("login.html", loginInit);
             }
@@ -42,7 +46,7 @@ function initApp() {
             }
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
-        console.log(textStatus);
+        console.log("INIT FAILURE: " + textStatus);
         pageTransition("login.html", loginInit);
     });
 }
@@ -102,8 +106,7 @@ function pageTransition(pageURL, initFunction) {
 
     // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
-        console.log('statusChangeCallback');
-        console.log(response);
+
         fbResponse = response;
         // The response object is returned with a status field that lets the
         // app know the current login status of the person.
