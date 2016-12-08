@@ -1,28 +1,3 @@
-/* Main Setup */
-
-html {
-    font-family: RegularText;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-body {
-    height: 100%;
-    width: 100%;
-    background-color: #eeeeef;
-}
-
 .content {
     width: 100%;
     height: 100%;
@@ -63,7 +38,7 @@ body {
 }
 
 .unsw {
-    background: url("res/assets/unsw.jpeg") no-repeat center center fixed;
+    background: url("../res/assets/unsw.jpeg") no-repeat center center fixed;
     transform: scale(1.03);
     overflow-x: hidden;
     overflow-y: hidden;
@@ -77,7 +52,7 @@ body {
     z-index: 1;
 }
 .uts {
-    background: url("res/assets/uts.jpg") no-repeat center center fixed;
+    background: url("../res/assets/uts.jpg") no-repeat center center fixed;
     transform: scale(1.04);
     overflow-x: hidden; /* Get rid of the horizontal scrollbar */
     overflow-y: hidden;
@@ -91,7 +66,7 @@ body {
     z-index: 1;
 }
 .usyd {
-    background: url("res/assets/usyd.jpg") no-repeat center center fixed;
+    background: url("../res/assets/usyd.jpg") no-repeat center center fixed;
     transform: scale(1.01);
     overflow-x: hidden; /* Get rid of the horizontal scrollbar */
     overflow-y: hidden;
@@ -175,26 +150,6 @@ body {
 }
 
 
-/* Loader Stuff */
-
-.main-loader {
-    border: 5px solid #f3f3f3; /* Light grey */
-    border-top: 5px solid #16a085;
-    border-radius: 50%;
-    width: 10%;
-    animation: spin 2s linear infinite;
-    display: block;
-}
-.main-loader:after{
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 
 
 /* Notifications & Status Stuff */
@@ -215,12 +170,9 @@ body {
 }
 
 
-/* Placement Stuff */
 
-.centered{
-    display: block;
-    margin: 3vh auto;
-}
+
+
 
 .facebook-stuff {
     position: absolute;
@@ -229,13 +181,8 @@ body {
     right:10px;
 }
 
-.spacer-5 {
-    height: 5%;
-}
 
-.spacer-50 {
-    height: 50%;
-}
+
 
 /* Login Page Stuff */
 
@@ -292,79 +239,4 @@ body {
     margin-left: 94vw;
     border-color: black;
     background-color: transparent;
-}
-
-.feedback-input {
-	color:#3c3c3c;
-	font-family: RegularText;
-	font-size: 4vh;
-	border-radius: 0;
-	line-height: 100%;
-	background-color: #fbfbfb;
-	padding: 0px 0px 0px 13%;
-	width: 70%;
-    height: 8vh;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
-    opacity: 0.9;
-    background-size: 5vh;
-	background-position: 4% 50%;
-	background-repeat: no-repeat;
-    box-shadow: none;
-    outline: none;
-    border: 0;
-    -webkit-appearance: none;
-}
-
-#firstnameInput, #lastnameInput {
-	background-image: url(/res/assets/icons/name.png);
-}
-#userDOB {
-	background-image: url(/res/assets/icons/dob.png);
-}
-#preferenceInput {
-	background-image: url(/res/assets/icons/gender.png);
-}
-#zIDInput {
-	background-image: url(/res/assets/icons/id.png);
-}
-#emailInput {
-	background-image: url(/res/assets/icons/email.png);
-}
-#faculty1Input, #faculty2Input {
-	background-image: url(/res/assets/icons/faculty.png);
-}
-#degreeInput {
-	background-image: url(/res/assets/icons/degree.png);
-}
-#yearInput {
-	background-image: url(/res/assets/icons/yearofstudy.png);
-}
-
-
-.form-button {
-    font-family: SpecialText;
-    display: block;
-    height: 8vh;
-    width: 80%;
-    font-size: 120%;
-    position:relative;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-    background: #16a085;
-    border: 0;
-    border-bottom: 2px solid #14947b;
-    cursor: pointer;
-    -webkit-box-shadow: inset 0 -2px #14947b;
-    box-shadow: inset 0 -2px #14947b;
-}
-.form-button:hover {
-    background: #169C81;
-}
-.form-button:active {
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
 }

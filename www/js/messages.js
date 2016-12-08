@@ -7,13 +7,18 @@ function messagesInit() {
         pageTransition("match.html", matchInit);
     });
     
+    //The back button on the contacts page is clicked
+    $("#back").click(function() {
+        pageTransition("conversation.html", conversationInit);
+    });
+    
     function checkNewMessages() {
         if (currentPage === "MESSAGES") {
             $.ajax({
                 type: "POST",
                 //dataType: "json",
                 data: {
-                    ato: fbResponse.authResponse.accessToken,
+                    ato: accessToken,
                     contact_id: chatContactSelected,
                     req_type: "check_cache"
                 },
@@ -38,18 +43,45 @@ function messagesInit() {
     //Initial message check
     $.ajax({
         type: "POST",
-        //dataType: "json",
+        dataType: "json",
         data: {
-            ato: fbResponse.authResponse.accessToken,
-            contact_id: chatContactSelected,
-            req_type: "check"
+            ato: accessToken,
+            req_type: "active_conv"
         },
         url: SERVER_ADDRESS + "/chat.php",
         success: function(data) {
-            var messages = data[0].split(String.fromCharCode(31));
-            $("#listBackground").html("");    //Wipe it
-            for (var i = 1; i < messages.length-1; i+=2) {    //dunno why, but it's creating one more div than it should
-                $("#listBackground").append("<div " + "\" class=\"listItem addContactListItem\"><p class=\"listItemText\">" + messages[i-1] + ":    " + messages[i]+"</p></div>");
+            console.log(data);
+            $("#convo-container").html("");    //Wipe it
+            
+            for (var i = 0; i < data.length; i++) {
+                var senderPicURL = data[i][3];
+                var senderName = data[i][0];
+                var senderUni = data[i][2];
+                var prevMessageSender = data[i][4].split(String.fromCharCode(31))[0];
+                var prevMessage = data[i][4].split(String.fromCharCode(31))[1];
+                
+                if (prevMessage == "") {
+                    console.log("EMPTY");
+                    $("#new-matches").append(
+                        '<div class="match-portrait" style="background-image: url(\''+ senderPicURL + '\');></div>'
+                    );
+                }
+                
+                else {
+                    console.log("NOT EMPTY");
+                    $("#convo-container").append(
+                        '<div class="convo-section">\
+                            <div class="image-section">\
+                                <div class="convo-portrait" style="background-image: url(\''+ senderPicURL + '\');"></div>\
+                            </div>\
+                            <div class="text-section">\
+                                <p class="message-sender"><span>' + senderName + '</span> from <span>' + senderUni + '</span></p>\
+                                <br>\
+                                <p class="last-message">' + prevMessageSender + '&nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>' + prevMessage + '</p>\
+                            </div>\
+                        </div>'
+                    );
+                }
             }
             
             setTimeout(function(){ 
@@ -58,31 +90,5 @@ function messagesInit() {
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus);
-    });
-    
-    //The back button on the contacts page is clicked
-    $("#back").click(function() {
-        pageTransition("conversation.html", conversationInit);
-    });
-    
-    $("#send").click(function() {
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            data: {
-                ato: fbResponse.authResponse.accessToken, 
-                contact_id: chatContactSelected ,
-                req_type: "send",
-                message: $("#messageInput").val()
-            },
-            url: SERVER_ADDRESS + "/chat.php",
-            success: function(data) {
-                console.log(data);
-                $("#messageInput").val('');
-                messagesInit();
-            },
-        }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
-            console.log(textStatus);
-        });
     });
 }
