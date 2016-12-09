@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/loginStyle.css">
+        <script>
+            $("#slideshow > div:gt(0)").hide();
+
+            setInterval(function() { 
+              $('#slideshow > div:first')
+                .fadeOut(2000)
+                .next()
+                .fadeIn(500)
+                .end()
+                .appendTo('#slideshow');
+            },  6000);
+        </script>
+    </head>
+    
+    <body>
+        <div id="slideshow">
+            <div class="blur unsw"></div>
+            <div class="blur uts"></div>
+            <div class="blur usyd"></div>
+        </div>
+        <div class="content">
+            <img src="tinfoilnewnew.png" alt="Logo" class="titleImage">
+            <div class="tie-to-bottom2">
+                <input type="text" placeholder="First Name"id="firstnameInput" class="centered feedback-input" disabled>
+                <input type="text" placeholder="Last Name" id="lastnameInput" class="centered feedback-input" disabled>
+                <input type="date" placeholder="DOB" id="userDOB" class="centered feedback-input">
+                <select id="preferenceInput" class="centered feedback-input">
+                    <option value="" disabled selected>Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Both">Intersex</option>
+                </select>
+                <p class="centered infoText" id="infoText">&nbsp;</p>
+                <button type="button" id="next" class="form-button centered">Next</button>
+                <button type="button" id="back" class="form-button centered">Back</button>
+            </div>
+        </div>
+    </body>
+</html>
