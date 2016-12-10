@@ -1,6 +1,8 @@
 function matchInit() {
     currentPage = "MATCH";
     
+    $("#user-portrait").css("background-image", "url('" + profilePicURL + "')");
+    
     var matches = [0];  //the 0 is shifted off the end on the first card swap
     var matchCacheSize = 3; //how many matches before more are fetched
     

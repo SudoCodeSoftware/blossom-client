@@ -6,12 +6,8 @@ function messagesInit() {
     $(".fa-arrow-left").click(function() {
         pageTransition("match.html", matchInit);
     });
-    
-    //The back button on the contacts page is clicked
-    $("#back").click(function() {
-        pageTransition("conversation.html", conversationInit);
-    });
-    
+
+    /*
     function checkNewMessages() {
         if (currentPage === "MESSAGES") {
             $.ajax({
@@ -39,7 +35,7 @@ function messagesInit() {
             }, 1000);
         }
     }
-    
+    */
     //Initial message check
     $.ajax({
         type: "POST",
@@ -57,20 +53,18 @@ function messagesInit() {
                 var senderPicURL = data[i][3];
                 var senderName = data[i][0];
                 var senderUni = data[i][2];
-                var prevMessageSender = data[i][4].split(String.fromCharCode(31))[0];
-                var prevMessage = data[i][4].split(String.fromCharCode(31))[1];
+                var prevMessageSender = data[i][4][0];
+                var prevMessage = data[i][4][1];
                 
-                if (prevMessage == "") {
-                    console.log("EMPTY");
+                if (prevMessageSender == "") {
                     $("#new-matches").append(
-                        '<div class="match-portrait" style="background-image: url(\''+ senderPicURL + '\');></div>'
+                        '<div id="person' + i.toString() + '" class="match-portrait" style="background-image: url(\''+ senderPicURL + '\');"></div>'
                     );
                 }
                 
                 else {
-                    console.log("NOT EMPTY");
                     $("#convo-container").append(
-                        '<div class="convo-section">\
+                        '<div id="person' + i.toString() + '" class="convo-section">\
                             <div class="image-section">\
                                 <div class="convo-portrait" style="background-image: url(\''+ senderPicURL + '\');"></div>\
                             </div>\
@@ -82,6 +76,10 @@ function messagesInit() {
                         </div>'
                     );
                 }
+                
+                $("#person" + i).click(function() {
+                     pageTransition("chat.html", function() {});
+                });
             }
             
             setTimeout(function(){ 
