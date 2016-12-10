@@ -79,7 +79,7 @@ function matchInit() {
     
     function nextCard() {
         matches.shift();
-        console.log(matches);
+        
         //There are two cards, one being visible, the other one
         //being the buffer card that has everything loaded into it
         //before the cards being switched

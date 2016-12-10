@@ -54,7 +54,7 @@ function loginInit() {
 
                 var fbLoginSuccess = function (userData) {
                     accessToken = userData.authResponse.accessToken;
-                    console.log(userData.authResponse.accessToken);
+                    window.localStorage.setItem('accessToken', accessToken);
                     verifyAccessToken();
                 }
 

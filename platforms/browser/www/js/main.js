@@ -14,8 +14,8 @@ $(document).ready(function() {
         console.log("UserInfo: ", userData);
     }*/
     
-    accessToken = window.localStorage.getItem("facebook_accessToken");
-    
+    accessToken = window.localStorage.getItem("accessToken");
+    console.log(accessToken);
     //if (device.platform != "browser") {
         initApp();  //This happens in statusChangeCallback for browser
     //}
