@@ -29,7 +29,9 @@ function loginInit() {
                 }
 
                 var fbLoginSuccess = function (userData) {
-                    accessToken = userData.authResponse.accessToken;
+                    var fbAuthResponse = userData.authResponse;
+                    accessToken = fbAuthResponse.accessToken;
+                    userID = fbAuthResponse.userID;
                     window.localStorage.setItem('accessToken', accessToken);
                     verifyAccessToken();
                 }

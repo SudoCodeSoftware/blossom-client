@@ -7,10 +7,11 @@ function messagesInit() {
         pageTransition("match.html", matchInit);
     });
 
-    /*
+    
+    //TODO: Fix this
     function checkNewMessages() {
         if (currentPage === "MESSAGES") {
-            $.ajax({
+            /*$.ajax({
                 type: "POST",
                 //dataType: "json",
                 data: {
@@ -32,10 +33,10 @@ function messagesInit() {
 
             setTimeout(function(){ 
                 checkNewMessages(); 
-            }, 1000);
+            }, 1000);*/
         }
     }
-    */
+    
     //Initial message check
     $.ajax({
         type: "POST",
@@ -52,17 +53,20 @@ function messagesInit() {
             for (var i = 0; i < data.length; i++) {
                 var senderPicURL = data[i][3];
                 var senderName = data[i][0];
+                var senderID = data[i][1];
                 var senderUni = data[i][2];
                 var prevMessageSender = data[i][4][0];
                 var prevMessage = data[i][4][1];
                 
-                if (prevMessageSender == "") {
+                contactID = senderID;   //For the chat page
+                
+                if (prevMessageSender == "") {  //They're a new contact
                     $("#new-matches").append(
                         '<div id="person' + i.toString() + '" class="match-portrait" style="background-image: url(\''+ senderPicURL + '\');"></div>'
                     );
                 }
                 
-                else {
+                else {              //There's an existing conversation
                     $("#convo-container").append(
                         '<div id="person' + i.toString() + '" class="convo-section">\
                             <div class="image-section">\
@@ -78,7 +82,8 @@ function messagesInit() {
                 }
                 
                 $("#person" + i).click(function() {
-                     pageTransition("chat.html", function() {});
+                    contactID = senderID;
+                    pageTransition("chat.html", chatInit);
                 });
             }
             

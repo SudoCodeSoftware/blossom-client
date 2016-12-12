@@ -4,6 +4,8 @@ var SERVER_ADDRESS = "https://www.sudo-code.com/cgi-bin";
 var profilePicURL;
 var currentPage;
 var accessToken;
+var userID;
+var contactID;
 
 $(document).ready(function() {
     pageTransition("splash.html", function() {});
@@ -21,7 +23,8 @@ function initApp() {
     }
     
     else {
-        verifyAccessToken();
+        pageTransition("login.html", loginInit);
+        //verifyAccessToken();
     }
 }
 
@@ -90,7 +93,7 @@ function verifyAccessToken() {
             profilePicURL = data[1];
 
             if (data[0] === "2") {    //Username authentication failure
-                $("#infoText").html("Authentication Failure");
+                pageTransition("login.html", loginInit);
             }
             else if (data[0] === "1a") {   //Success (User already exists)
                 pageTransition("match.html", matchInit);
