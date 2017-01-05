@@ -18,17 +18,19 @@ function chatInit() {
         url: SERVER_ADDRESS + "/chat.php",
         success: function(data) {
             console.log(data);
-            
+            /*
+            <div class="talk-bubble tri-right round btm-right-in user">
+              <div class="talktext">
+                <p>Please stop messaging me.</p>
+              </div>
+            </div>*/
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus);
     });
     
-    
-    
     $("#listBackground").click(function() {
         chatContactSelected = $(this).text();
         pageTransition("messages.html", messagesInit);
     });
-    
 }

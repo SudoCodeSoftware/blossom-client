@@ -4,8 +4,8 @@ var SERVER_ADDRESS = "https://www.sudo-code.com/cgi-bin";
 var profilePicURL;
 var currentPage;
 var accessToken;
-var userID;
-var contactID;
+var userID;     //FB ID of the user
+var contactID;  //FB ID of the current contact (e.g. on the conversation page)
 
 $(document).ready(function() {
     pageTransition("splash.html", function() {});

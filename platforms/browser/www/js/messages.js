@@ -58,8 +58,6 @@ function messagesInit() {
                 var prevMessageSender = data[i][4][0];
                 var prevMessage = data[i][4][1];
                 
-                contactID = senderID;   //For the chat page
-                
                 if (prevMessageSender == "") {  //They're a new contact
                     $("#new-matches").append(
                         '<div id="person' + i.toString() + '" class="match-portrait" style="background-image: url(\''+ senderPicURL + '\');"></div>'
@@ -81,8 +79,11 @@ function messagesInit() {
                     );
                 }
                 
+                $("#person" + i.toString()).data("fb_id", senderID);    //Stored for retrieval upon click
+                
                 $("#person" + i).click(function() {
-                    contactID = senderID;
+                    contactID = $(this).data().fb_id;
+                    console.log(contactID);
                     pageTransition("chat.html", chatInit);
                 });
             }
