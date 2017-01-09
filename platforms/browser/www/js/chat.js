@@ -3,6 +3,43 @@ function chatInit() {
     
     var interval = null;
     
+    function fillMessages(data) {
+        //Data is terminated by empty string
+        //and is in the form id, message, id,
+        //message etc.
+        for (var i = 0; data[i] != ""; i += 2) {
+            var id = data[i];
+            var message = data[i + 1];
+
+            if (id == userID) {
+                 $("#message-area").append('\
+                    <div class="talk-bubble tri-right round btm-right-in user">\
+                        <div class="talktext">\
+                            <p>' + message + '</p>\
+                        </div>\
+                    </div>');
+            }
+
+            else if (id == contactID && data[i + 2] != "") {
+                $("#message-area").append('\
+                    <div class="talk-bubble round btm-left-in match">\
+                        <div class="talktext">\
+                            <p>' + message + '</p>\
+                        </div>\
+                    </div>');
+            }
+            
+            else if (id == contactID && data[i + 2] == "") {    //Last message
+                $("#message-area").append('\
+                    <div class="talk-bubble tri-right round btm-left-in match">\
+                        <div class="talktext">\
+                            <p>' + message + '</p>\
+                        </div>\
+                    </div>');
+            }
+        }
+    }
+    
     function updateMessages() {
         $.ajax({
             type: "POST",
@@ -13,34 +50,7 @@ function chatInit() {
                 req_type: "check_cache"
             },
             url: SERVER_ADDRESS + "/chat.php",
-            success: function(data) {
-
-                //Data is terminated by empty string
-                //and is in the form id, message, id,
-                //message etc.
-                for (var i = 0; data[i] != ""; i += 2) {
-                    var id = data[i];
-                    var message = data[i + 1];
-
-                    if (id == userID) {
-                         $("#message-area").append('\
-                            <div class="talk-bubble tri-right round btm-right-in user">\
-                                <div class="talktext">\
-                                    <p>' + message + '</p>\
-                                </div>\
-                            </div>');
-                    }
-
-                    else if (id == contactID) {
-                        $("#message-area").append('\
-                            <div class="talk-bubble tri-right round btm-left-in match">\
-                                <div class="talktext">\
-                                    <p>' + message + '</p>\
-                                </div>\
-                            </div>');
-                    }
-                }
-            },
+            success: fillMessages(data)
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus);
         });
@@ -64,33 +74,7 @@ function chatInit() {
         },
         url: SERVER_ADDRESS + "/chat.php",
         success: function(data) {
-            
-            //Data is terminated by empty string
-            //and is in the form id, message, id,
-            //message etc.
-            for (var i = 0; data[i] != ""; i += 2) {
-                var id = data[i];
-                var message = data[i + 1];
-                
-                if (id == userID) {
-                     $("#message-area").append('\
-                        <div class="talk-bubble tri-right round btm-right-in user">\
-                            <div class="talktext">\
-                                <p>' + message + '</p>\
-                            </div>\
-                        </div>');
-                }
-                
-                else if (id == contactID) {
-                    $("#message-area").append('\
-                        <div class="talk-bubble tri-right round btm-left-in match">\
-                            <div class="talktext">\
-                                <p>' + message + '</p>\
-                            </div>\
-                        </div>');
-                }
-            }
-            
+            fillMessages(data);
             setInterval(updateMessages, 3000);
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {

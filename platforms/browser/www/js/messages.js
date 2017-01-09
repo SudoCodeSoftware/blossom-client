@@ -73,7 +73,7 @@ function messagesInit() {
                             <div class="text-section">\
                                 <p class="message-sender"><span>' + senderName + '</span> from <span>' + senderUni + '</span></p>\
                                 <br>\
-                                <p class="last-message">' + prevMessageSender + '&nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>' + prevMessage + '</p>\
+                                <p class="last-message">' + prevMessageSender + '&nbsp<i class="fa" aria-hidden="true"></i>:' + prevMessage + '</p>\
                             </div>\
                         </div>'
                     );
