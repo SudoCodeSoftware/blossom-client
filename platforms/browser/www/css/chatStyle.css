@@ -82,11 +82,11 @@
 
 .user {
     float: right;
-    background-color: gainsboro;
+    background-color: yellow;
 }
 
 .user.tri-right.btm-right-in:after{
-    border-color: gainsboro gainsboro transparent transparent;
+    border-color: yellow yellow transparent transparent;
 }
 
 

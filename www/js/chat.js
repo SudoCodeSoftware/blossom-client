@@ -9,33 +9,47 @@ function chatInit() {
         //message etc.
         for (var i = 0; data[i] != ""; i += 2) {
             var id = data[i];
+            var nextID = data[i + 2];
             var message = data[i + 1];
 
             if (id == userID) {
-                 $("#message-area").append('\
-                    <div class="talk-bubble tri-right round btm-right-in user">\
-                        <div class="talktext">\
-                            <p>' + message + '</p>\
-                        </div>\
-                    </div>');
+                if (nextID != userID) {
+                    $("#message-area").append('\
+                        <div class="talk-bubble tri-right round btm-right-in user">\
+                            <div class="talktext">\
+                                <p>' + message + '</p>\
+                            </div>\
+                        </div>');
+                }
+                
+                else {
+                    $("#message-area").append('\
+                        <div class="talk-bubble round btm-right-in user">\
+                            <div class="talktext">\
+                                <p>' + message + '</p>\
+                            </div>\
+                        </div>');
+                }
             }
 
-            else if (id == contactID && data[i + 2] != "") {
-                $("#message-area").append('\
-                    <div class="talk-bubble round btm-left-in match">\
-                        <div class="talktext">\
-                            <p>' + message + '</p>\
-                        </div>\
-                    </div>');
-            }
-            
-            else if (id == contactID && data[i + 2] == "") {    //Last message
-                $("#message-area").append('\
-                    <div class="talk-bubble tri-right round btm-left-in match">\
-                        <div class="talktext">\
-                            <p>' + message + '</p>\
-                        </div>\
-                    </div>');
+            else if (id == contactID) {
+                if (nextID != contactID) {
+                    $("#message-area").append('\
+                        <div class="talk-bubble tri-right round btm-left-in match">\
+                            <div class="talktext">\
+                                <p>' + message + '</p>\
+                            </div>\
+                        </div>');
+                }
+                
+                else {
+                    $("#message-area").append('\
+                        <div class="talk-bubble round btm-left-in match">\
+                            <div class="talktext">\
+                                <p>' + message + '</p>\
+                            </div>\
+                        </div>');
+                }
             }
         }
     }
