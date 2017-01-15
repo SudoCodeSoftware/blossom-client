@@ -65,7 +65,7 @@ function chatInit() {
             },
             url: SERVER_ADDRESS + "/chat.php",
             success: function(data) {
-                fillMessages(data)
+                fillMessages(data);
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus);
