@@ -123,13 +123,12 @@
 
 .chat_box .text_input {
     font-size: 3vh;
-    width: 82%;
+    width: 77.7%;
     height: 100%;
     padding: 2%;
     resize: none;
     border-color: #16a085;
-		border-right: none;
-		border-left: none;
+  	border-right: none;
 }
 
 .chat_box .text_input:focus {
@@ -139,7 +138,7 @@
 .chat_box .submit_input {
     font-size: 5vh;
     float: right;
-    width: 14%;
+    width: 18%;
     background-color: #16a085;
     height: 100%;
     border-width: 0;
@@ -152,4 +151,19 @@
 
 .chat-pad {
 	padding: 110px;
+}
+
+.name-banner {
+    height: 16%;
+    width: 16vh;
+    display: block;
+    position: absolute;
+    top: 7.3vh;
+    left:0; 
+    right:0;
+    cursor:pointer;
+    z-index: 5;
+    font-size: 5vh;
+    text-align: center;
+    color: white;
 }
