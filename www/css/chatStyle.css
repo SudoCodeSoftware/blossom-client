@@ -117,7 +117,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 10%;
+    height: 7%;
     z-index: 1000;
 }
 
@@ -127,7 +127,7 @@
     height: 100%;
     padding: 2%;
     resize: none;
-    border-color: gainsboro;
+    border-color: #16a085;
 }
 
 .chat_box .text_input:focus {
@@ -137,11 +137,11 @@
 .chat_box .submit_input {
     font-size: 5vh;
     float: right;
-    width: 13%;
-    background-color: gainsboro;
+    width: 18%;
+    background-color: #16a085;
     height: 100%;
     border-width: 0;
-    color: #16a085;
+    color: white;
 }
 
 .chat_box .submit_input:focus {
