@@ -64,7 +64,9 @@ function chatInit() {
                 req_type: "check_cache"
             },
             url: SERVER_ADDRESS + "/chat.php",
-            success: fillMessages(data)
+            success: function(data) {
+                fillMessages(data)
+            },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus);
         });
