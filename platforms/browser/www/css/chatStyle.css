@@ -128,6 +128,8 @@
     padding: 2%;
     resize: none;
     border-color: #16a085;
+		border-right: none;
+		border-left: none;
 }
 
 .chat_box .text_input:focus {
@@ -137,7 +139,7 @@
 .chat_box .submit_input {
     font-size: 5vh;
     float: right;
-    width: 13%;
+    width: 14%;
     background-color: #16a085;
     height: 100%;
     border-width: 0;
@@ -146,4 +148,8 @@
 
 .chat_box .submit_input:focus {
     outline: none;
+}
+
+.chat-pad {
+	padding: 110px;
 }

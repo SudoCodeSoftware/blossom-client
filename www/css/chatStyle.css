@@ -149,3 +149,7 @@
 .chat_box .submit_input:focus {
     outline: none;
 }
+
+.chat-pad {
+	padding: 110px;
+}
