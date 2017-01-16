@@ -167,3 +167,22 @@
     text-align: center;
     color: white;
 }
+
+.match-portrait-mini {
+    background-color: white;
+		border-radius: 50%;
+    height: 10vh;
+    width: 10vh;
+    display: block;
+    background-image: url("../res/assets/userimage.png");
+    background-size: cover;
+    cursor:pointer;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-top: 38%;
+    display:inline-block
+}
+.match-portrait-mini:active {
+    -webkit-filter: grayscale; /*sepia, hue-rotate, invert....*/
+    -webkit-filter: brightness(90%);
+}
