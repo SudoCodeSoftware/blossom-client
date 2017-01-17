@@ -40,6 +40,10 @@ function matchInit() {
         nextCard();
     });
     
+    $("#user-portrait").click(function() {
+        pageTransition("profile.html", profileInit);
+    });
+    
     initMatches();
     
     //Identical to updateMatches, except that this
