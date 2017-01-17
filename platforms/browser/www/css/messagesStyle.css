@@ -4,7 +4,6 @@
     height: 13vh;
     width: 13vh;
     display: block;
-    background-image: url("../res/assets/userimage.png");
     background-size: cover;
     cursor:pointer;
     margin-left: 0.5%;
@@ -23,7 +22,6 @@
     height: 95%;
     width: 95%;
     display: block;
-    background-image: url("../res/assets/userimage.png");
     background-size: cover;
     cursor:pointer;
     margin-left: 1%;

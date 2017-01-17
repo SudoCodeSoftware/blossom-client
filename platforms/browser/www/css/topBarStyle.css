@@ -77,7 +77,6 @@
     left:0; 
     right:0;
     border: 2px solid #14947b;
-    background-image: url("../res/assets/userimage.png");
     background-size: cover;
     cursor:pointer;
     z-index: 5;
