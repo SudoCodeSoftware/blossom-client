@@ -128,7 +128,10 @@
     padding: 2%;
     resize: none;
     border-color: #16a085;
+<<<<<<< HEAD
+=======
   	border-right: none;
+>>>>>>> e6e9180f672e3fdc59cf1b2770f6b2f6c269d7fb
 }
 
 .chat_box .text_input:focus {
