@@ -1,0 +1,5 @@
+function profileInit() {
+    currentPage = "PROFILE";
+    
+    
+}
