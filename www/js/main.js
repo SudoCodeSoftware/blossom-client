@@ -7,6 +7,7 @@ var accessToken;
 var userID;     //FB ID of the user
 var contactID;  //FB ID of the current contact (e.g. on the conversation page)
 var contactName;
+var contactImgURL;
 
 $(document).ready(function() {
     pageTransition("splash.html", function() {});

@@ -73,7 +73,7 @@ function messagesInit() {
                             <div class="text-section">\
                                 <p class="message-sender"><span>' + senderName + '</span> from <span>' + senderUni + '</span></p>\
                                 <br>\
-                                <p class="last-message">' + prevMessageSender + '&nbsp<i class="fa" aria-hidden="true"></i>:' + prevMessage + '</p>\
+                                <p class="last-message">' + prevMessageSender + '<i class="fa" aria-hidden="true"></i>:&nbsp' + prevMessage + '</p>\
                             </div>\
                         </div>'
                     );
@@ -81,10 +81,13 @@ function messagesInit() {
                 
                 $("#person" + i.toString()).data("fb_id", senderID);    //Stored for retrieval upon click
                 $("#person" + i.toString()).data("name", senderName);
+                $("#person" + i.toString()).data("picURL", senderPicURL);
+                
                 
                 $("#person" + i).click(function() {
                     contactID = $(this).data().fb_id;
                     contactName = $(this).data().name;
+                    contactImgURL = $(this).data().picURL;
                     pageTransition("chat.html", chatInit);
                 });
             }
