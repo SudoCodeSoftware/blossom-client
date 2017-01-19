@@ -1,7 +1,9 @@
 function chatInit() {
     currentPage = "CHAT";
     
-    var interval = null;
+    var interval = null;    //Variable for the checking for new messages polling
+    
+    $("#contact-name").html(contactName);
     
     function fillMessages(data) {
         //Data is terminated by empty string

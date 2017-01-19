@@ -80,10 +80,11 @@ function messagesInit() {
                 }
                 
                 $("#person" + i.toString()).data("fb_id", senderID);    //Stored for retrieval upon click
+                $("#person" + i.toString()).data("name", senderName);
                 
                 $("#person" + i).click(function() {
                     contactID = $(this).data().fb_id;
-                    console.log(contactID);
+                    contactName = $(this).data().name;
                     pageTransition("chat.html", chatInit);
                 });
             }

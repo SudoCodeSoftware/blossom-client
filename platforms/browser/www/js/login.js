@@ -32,6 +32,7 @@ function loginInit() {
                     var fbAuthResponse = userData.authResponse;
                     accessToken = fbAuthResponse.accessToken;
                     userID = fbAuthResponse.userID;
+                    console.log(userData);
                     window.localStorage.setItem('accessToken', accessToken);
                     verifyAccessToken();
                 }
