@@ -81,10 +81,13 @@ function messagesInit() {
                 
                 $("#person" + i.toString()).data("fb_id", senderID);    //Stored for retrieval upon click
                 $("#person" + i.toString()).data("name", senderName);
+                $("#person" + i.toString()).data("picURL", senderPicURL);
+                
                 
                 $("#person" + i).click(function() {
                     contactID = $(this).data().fb_id;
                     contactName = $(this).data().name;
+                    contactImgURL = $(this).data().picURL;
                     pageTransition("chat.html", chatInit);
                 });
             }

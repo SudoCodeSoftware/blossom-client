@@ -4,6 +4,7 @@ function chatInit() {
     var interval = null;    //Variable for the checking for new messages polling
     
     $("#contact-name").html(contactName);
+    $("#contact-pic").css("background-image", "url('" + contactImgURL + "')");
     
     function fillMessages(data) {
         //Data is terminated by empty string
