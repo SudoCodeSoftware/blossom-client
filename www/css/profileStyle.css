@@ -107,14 +107,10 @@
   	text-decoration: none;
 }
 
-.edit-description-button {
+.profile-button-thin {
     width: 10vw;
 }
 
-.add-more-button {
-    width: 30vw;
-}
-
-.edit-degree-button {
+.profile-button-wide {
     width: 20vw;
 }
