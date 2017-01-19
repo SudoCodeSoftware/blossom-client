@@ -29,10 +29,10 @@
     font-size: 15vw;
     position: fixed;
     text-shadow:
-   -2px -1px 0 #000,  
-    1px -2px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
+   -3px -3px 0 #16a085,  
+    3px -3px 0 #16a085,
+    -3px 3px 0 #16a085,
+     3px 3px 0 #16a085;
 }
 
 .exit-button:active {
@@ -97,67 +97,24 @@
     margin:0 0 1vh 0; 
 }
 
-.add-more-button {
-    padding: 1vh;
+.profile-button {
+  	padding: 1vh;
     text-align: center;
     font-size: 5vw;
-    background: none;
-    border: 1px solid black;
-    color: black;
-    width: 30vw;
-    text-decoration: none;
+	border-radius: 3px;
+	background: #16a085;
+  	color: white;
+  	text-decoration: none;
 }
-
-.add-more-button:hover {
-    border: 1px solid #666666;
-    color: #666666;
-}
-
-.add-more-button:active {
-    border: 1px solid #999999;
-    color: #999999;
-}
-
 
 .edit-description-button {
-    padding: 1vh;
-    text-align: center;
-    font-size: 5vw;
-    background: none;
-    border: 1px solid black;
-    color: black;
     width: 10vw;
-    text-decoration: none;
 }
 
-.edit-description-button:hover {
-    border: 1px solid #666666;
-    color: #666666;
+.add-more-button {
+    width: 30vw;
 }
-
-.edit-description-button:active {
-    border: 1px solid #999999;
-    color: #999999;
-}
-
 
 .edit-degree-button {
-    padding: 1vh;
-    text-align: center;
-    font-size: 5vw;
-    background: none;
-    border: 1px solid black;
-    color: black;
     width: 20vw;
-    text-decoration: none;
-}
-
-.edit-degree-button:hover {
-    border: 1px solid #666666;
-    color: #666666;
-}
-
-.edit-degree-button:active {
-    border: 1px solid #999999;
-    color: #999999;
 }
