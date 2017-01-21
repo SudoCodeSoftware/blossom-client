@@ -1,7 +1,7 @@
 function matchInit() {
-    currentPage = "MATCH";
+    globals.currentPage = "MATCH";
     
-    $("#user-portrait").css("background-image", "url('" + profilePicURL + "')");
+    $("#user-portrait").css("background-image", "url('" + globals.profilePicURL + "')");
     
     var matches = [0];  //the 0 is shifted off the end on the first card swap
     var matchCacheSize = 3; //how many matches before more are fetched
@@ -18,7 +18,7 @@ function matchInit() {
             type: "POST",
             dataType: "json",
             data: {
-                ato: accessToken,
+                ato: globals.accessToken,
                 matchId: matches[0].fb_id,
                 req_type: "ticked"
             },
@@ -53,7 +53,7 @@ function matchInit() {
             type: "POST",
             dataType: "json",
             data: {
-                ato: accessToken
+                ato: globals.accessToken
             },
             url: SERVER_ADDRESS + '/match.php',
             success: function(data) {
@@ -72,7 +72,7 @@ function matchInit() {
             type: "POST",
             dataType: "json",
             data: {
-                ato: accessToken
+                ato: globals.accessToken
             },
             url: SERVER_ADDRESS + '/match.php',
             success: function(data) {

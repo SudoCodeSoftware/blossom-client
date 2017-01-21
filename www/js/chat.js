@@ -1,10 +1,10 @@
 function chatInit() {
-    currentPage = "CHAT";
+    globals.currentPage = "CHAT";
     
     var interval = null;    //Variable for the checking for new messages polling
     
-    $("#contact-name").html(contactName);
-    $("#contact-pic").css("background-image", "url('" + contactImgURL + "')");
+    $("#contact-name").html(globals.messages.contactName);
+    $("#contact-pic").css("background-image", "url('" + globals.messages.contactImgURL + "')");
     
     function fillMessages(data) {
         //Data is terminated by empty string
@@ -15,8 +15,8 @@ function chatInit() {
             var nextID = data[i + 2];
             var message = data[i + 1];
 
-            if (id == userID) {
-                if (nextID != userID) {
+            if (id == globals.userID) {
+                if (nextID != globals.userID) {
                     $("#message-area").append('\
                         <div class="talk-bubble tri-right round btm-right-in user">\
                             <div class="talktext">\
@@ -35,8 +35,8 @@ function chatInit() {
                 }
             }
 
-            else if (id == contactID) {
-                if (nextID != contactID) {
+            else if (id == globals.messages.contactID) {
+                if (nextID != globals.messages.contactID) {
                     $("#message-area").append('\
                         <div class="talk-bubble tri-right round btm-left-in match">\
                             <div class="talktext">\
@@ -62,8 +62,8 @@ function chatInit() {
             type: "POST",
             dataType: "json",
             data: {
-                ato: accessToken,
-                contact_id: contactID,
+                ato: globals.accessToken,
+                contact_id: globals.messages.contactID,
                 req_type: "check_cache"
             },
             url: SERVER_ADDRESS + "/chat.php",
@@ -87,8 +87,8 @@ function chatInit() {
         type: "POST",
         dataType: "json",
         data: {
-            ato: accessToken,
-            contact_id: contactID,
+            ato: globals.accessToken,
+            contact_id: globals.messages.contactID,
             req_type: "check"
         },
         url: SERVER_ADDRESS + "/chat.php",
@@ -105,8 +105,8 @@ function chatInit() {
             type: "POST",
             dataType: "json",
             data: {
-                ato: accessToken,
-                contact_id: contactID,
+                ato: globals.accessToken,
+                contact_id: globals.messages.contactID,
                 req_type: "send",
                 message: $("#chat-textbox").val()
             },
@@ -127,8 +127,8 @@ function chatInit() {
                 type: "POST",
                 dataType: "json",
                 data: {
-                    ato: accessToken,
-                    contact_id: contactID,
+                    ato: globals.accessToken,
+                    contact_id: globals.messages.contactID,
                     req_type: "send",
                     message: $("#chat-textbox").val()
                 },

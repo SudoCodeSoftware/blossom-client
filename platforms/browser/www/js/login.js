@@ -1,7 +1,5 @@
 function loginInit() {
-    currentPage = "LOGIN";
-    
-    $("#slideshow > div:gt(0)").hide();
+    globals.currentPage = "LOGIN";
 
     setInterval(function() { 
         $('#slideshow > div:first')
@@ -31,7 +29,7 @@ function loginInit() {
                 var fbLoginSuccess = function (userData) {
                     var fbAuthResponse = userData.authResponse;
                     accessToken = fbAuthResponse.accessToken;
-                    userID = fbAuthResponse.userID;
+                    globals.userID = fbAuthResponse.userID;
                     console.log(userData);
                     window.localStorage.setItem('accessToken', accessToken);
                     verifyAccessToken();

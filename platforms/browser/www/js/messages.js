@@ -1,5 +1,7 @@
 function messagesInit() {
-    currentPage = "MESSAGES";
+    globals.currentPage = "MESSAGES";
+    
+    globals.messages = {};  //Create a messages subobject inside globals for stuff we need stored
     
     //Fill the messages list
     //This request is for getting active conversations
@@ -10,12 +12,12 @@ function messagesInit() {
     
     //TODO: Fix this
     function checkNewMessages() {
-        if (currentPage === "MESSAGES") {
+        if (globals.currentPage === "MESSAGES") {
             /*$.ajax({
                 type: "POST",
                 //dataType: "json",
                 data: {
-                    ato: accessToken,
+                    ato: globals.accessToken,
                     contact_id: chatContactSelected,
                     req_type: "check_cache"
                 },
@@ -42,7 +44,7 @@ function messagesInit() {
         type: "POST",
         dataType: "json",
         data: {
-            ato: accessToken,
+            ato: globals.accessToken,
             req_type: "active_conv"
         },
         url: SERVER_ADDRESS + "/chat.php",
@@ -85,9 +87,10 @@ function messagesInit() {
                 
                 
                 $("#person" + i).click(function() {
-                    contactID = $(this).data().fb_id;
-                    contactName = $(this).data().name;
-                    contactImgURL = $(this).data().picURL;
+                    
+                    globals.messages.contactID = $(this).data().fb_id;
+                    globals.messages.contactName = $(this).data().name;
+                    globals.messages.contactImgURL = $(this).data().picURL;
                     pageTransition("chat.html", chatInit);
                 });
             }

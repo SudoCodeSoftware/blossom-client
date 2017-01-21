@@ -1,26 +1,20 @@
 $("#loginDiv").css({perspective: 500, rotateY: 0});
 
+var globals = {};   //Can have stuff shoved in it for communication between pages
 var SERVER_ADDRESS = "https://www.sudo-code.com/cgi-bin";
-var profilePicURL;
-var currentPage;
-var accessToken;
-var userID;     //FB ID of the user
-var contactID;  //FB ID of the current contact (e.g. on the conversation page)
-var contactName;
-var contactImgURL;
 
 $(document).ready(function() {
     pageTransition("splash.html", function() {});
     
-    accessToken = window.localStorage.getItem("accessToken");
-    console.log(accessToken);
+    globals.accessToken = window.localStorage.getItem("accessToken");
+    
     //if (device.platform != "browser") {
         initApp();  //This happens in statusChangeCallback for browser
     //}
 });
 
 function initApp() {
-    if (accessToken == undefined) {
+    if (globals.accessToken == undefined) {
         pageTransition("login.html", loginInit);
     }
     
@@ -33,6 +27,7 @@ function initApp() {
 function pageTransition(pageURL, initFunction) {
     if ($("#page1").is(":visible")) {
         $("#page2").load(pageURL, function() {
+            initFunction();
             $("#page1").animate({
                     opacity: 0.0
                 }, 
@@ -49,7 +44,7 @@ function pageTransition(pageURL, initFunction) {
                         "linear", 
                         function() {
                             $("#page1").html("");
-                            initFunction();
+                            
                         }
                     );
                 }
@@ -58,6 +53,7 @@ function pageTransition(pageURL, initFunction) {
     }
     else {
         $("#page1").load(pageURL, function() {
+            initFunction();
             $("#page2").animate({
                     opacity: 0.0
                 }, 
@@ -74,7 +70,7 @@ function pageTransition(pageURL, initFunction) {
                         "linear",
                         function() {
                             $("#page2").html("");
-                            initFunction();
+                            
                         }
                     );
                 }
@@ -88,11 +84,11 @@ function verifyAccessToken() {
         type: "POST",
         dataType: "json",
         data: {
-            at: accessToken
+            at: globals.accessToken
         },
         url: SERVER_ADDRESS + '/login.php',
         success: function(data) {
-            profilePicURL = data[1];
+            globals.profilePicURL = data[1];
 
             if (data[0] === "2") {    //Username authentication failure
                 pageTransition("login.html", loginInit);
