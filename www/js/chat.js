@@ -20,7 +20,7 @@ function chatInit() {
                     $("#message-area").append('\
                         <div class="talk-bubble tri-right round btm-right-in user">\
                             <div class="talktext">\
-                                <p>' + message + '</p>\
+                                <p>' + sanitizeString(message) + '</p>\
                             </div>\
                         </div>');
                 }
@@ -29,7 +29,7 @@ function chatInit() {
                     $("#message-area").append('\
                         <div class="talk-bubble round btm-right-in user">\
                             <div class="talktext">\
-                                <p>' + message + '</p>\
+                                <p>' + sanitizeString(message) + '</p>\
                             </div>\
                         </div>');
                 }
@@ -40,7 +40,7 @@ function chatInit() {
                     $("#message-area").append('\
                         <div class="talk-bubble tri-right round btm-left-in match">\
                             <div class="talktext">\
-                                <p>' + message + '</p>\
+                                <p>' + sanitizeString(message) + '</p>\
                             </div>\
                         </div>');
                 }
@@ -49,7 +49,7 @@ function chatInit() {
                     $("#message-area").append('\
                         <div class="talk-bubble round btm-left-in match">\
                             <div class="talktext">\
-                                <p>' + message + '</p>\
+                                <p>' + sanitizeString(message) + '</p>\
                             </div>\
                         </div>');
                 }
@@ -101,22 +101,24 @@ function chatInit() {
     });
     
     $("#chat-submit").click(function() {
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            data: {
-                ato: globals.accessToken,
-                contact_id: globals.messages.contactID,
-                req_type: "send",
-                message: $("#chat-textbox").val()
-            },
-            url: SERVER_ADDRESS + "/chat.php",
-            success: function(data) {
-                
-            },
-        }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
-                console.log(textStatus);
-        });
+        if ($("#chat-textbox").val() != "") {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: {
+                    ato: globals.accessToken,
+                    contact_id: globals.messages.contactID,
+                    req_type: "send",
+                    message: $("#chat-textbox").val()
+                },
+                url: SERVER_ADDRESS + "/chat.php",
+                success: function(data) {
+
+                },
+            }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+                    console.log(textStatus);
+            });
+        }
 
         $("#chat-textbox").val("");
     });

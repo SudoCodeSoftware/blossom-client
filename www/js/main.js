@@ -24,6 +24,23 @@ function initApp() {
     }
 }
 
+function sanitizeString(string) {
+    var entityMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '/': '&#x2F;',
+        '`': '&#x60;',
+        '=': '&#x3D;'
+    };
+    
+    return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+        return entityMap[s];
+    });
+}
+
 function pageTransition(pageURL, initFunction) {
     if ($("#page1").is(":visible")) {
         $("#page2").load(pageURL, function() {
