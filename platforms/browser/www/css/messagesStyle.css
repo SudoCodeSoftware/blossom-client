@@ -1,6 +1,6 @@
 .match-portrait {
     background-color: white;
-		border-radius: 50%;
+	border-radius: 50%;
     height: 13vh;
     width: 13vh;
     display: block;
@@ -71,4 +71,11 @@
 #titles {
     font-weight: 800;
     font-size: 110%;
+}
+
+.match-status-text {
+	text-align: center;
+	vertical-align: middle;
+	line-height: 10vh;
+	color: #d4d5d7;
 }
