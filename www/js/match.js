@@ -26,7 +26,11 @@ function matchInit() {
             success: function(data) {
                 console.log(data);
                 if (data[0] != '0') {   //The other person matched
-                    $("#match-ticked-popup").load("tickPopup.html");
+                    $("#match-ticked-popup").load("tickPopup.html", function() {
+                        $("#close-match-popup").click(function() {
+                            $("#match-ticked-popup").html("");
+                        });
+                    });
                 }
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
