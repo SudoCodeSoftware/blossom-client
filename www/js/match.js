@@ -24,6 +24,7 @@ function matchInit() {
             },
             url: SERVER_ADDRESS + '/match.php',
             success: function(data) {
+                console.log(data);
                 if (data[0] != '0') {   //The other person matched
                     $("#match-ticked-popup").load("tickPopup.html");
                 }

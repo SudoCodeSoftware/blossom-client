@@ -52,6 +52,9 @@ function messagesInit() {
             console.log(data);
             $("#convo-container").html("");    //Wipe it
             
+            var isNewContacts = false;
+            var isExistingContacts = false;
+            
             for (var i = 0; i < data.length; i++) {
                 var senderPicURL = data[i][3];
                 var senderName = data[i][0];
@@ -61,12 +64,15 @@ function messagesInit() {
                 var prevMessage = data[i][4][1];
                 
                 if (prevMessageSender == "") {  //They're a new contact
+                    isNewContacts = true;
+                    
                     $("#new-matches").append(
                         '<div id="person' + i.toString() + '" class="match-portrait" style="background-image: url(\''+ senderPicURL + '\');"></div>'
                     );
                 }
                 
                 else {              //There's an existing conversation
+                    isExistingContacts = true;
                     $("#convo-container").append(
                         '<div id="person' + i.toString() + '" class="convo-section">\
                             <div class="image-section">\
@@ -92,6 +98,14 @@ function messagesInit() {
                     globals.messages.contactImgURL = $(this).data().picURL;
                     pageTransition("chat.html", chatInit);
                 });
+            }
+            
+            if (!isNewContacts) {
+                $("#new-matches").append('<p class="match-status-text">no new matches</p>');
+            }
+            
+            if (!isExistingContacts) {
+                $("#convo-container").append('<p class="match-status-text">no conversations to display</p>');
             }
             
             setTimeout(function(){ 
