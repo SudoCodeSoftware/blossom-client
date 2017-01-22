@@ -28,10 +28,9 @@ function loginInit() {
 
                 var fbLoginSuccess = function (userData) {
                     var fbAuthResponse = userData.authResponse;
-                    accessToken = fbAuthResponse.accessToken;
+                    globals.accessToken = fbAuthResponse.accessToken;
                     globals.userID = fbAuthResponse.userID;
-                    console.log(userData);
-                    window.localStorage.setItem('accessToken', accessToken);
+                    window.localStorage.setItem('accessToken', globals.accessToken);
                     verifyAccessToken();
                 }
 
