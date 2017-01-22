@@ -6,6 +6,7 @@
 	line-height: 100%;
 	background-color: #fbfbfb;
 	padding: 0px 0px 0px 13%;
+	margin-top: 2vh;
 	width: 70%;
     height: 8vh;
 	-webkit-box-sizing: border-box;
@@ -37,7 +38,7 @@
 #emailInput {
 	background-image: url(../res/assets/icons/email.png);
 }
-#faculty1Input, #faculty2Input {
+#facultyInput {
 	background-image: url(../res/assets/icons/faculty.png);
 }
 #degreeInput {
@@ -46,7 +47,13 @@
 #yearInput {
 	background-image: url(../res/assets/icons/yearofstudy.png);
 }
+#codeInput {
+	background-image: url(../res/assets/icons/code.png);
+}
 
+.push-down {
+	margin-top: 5vh;
+}
 
 .form-button {
     font-family: SpecialText;
@@ -71,4 +78,8 @@
     outline: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+
+.signup-text {
+color: #fbfbfb;
 }
