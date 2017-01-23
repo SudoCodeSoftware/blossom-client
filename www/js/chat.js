@@ -7,6 +7,14 @@ function chatInit() {
     $("#contact-pic").css("background-image", "url('" + globals.messages.contactImgURL + "')");
     
     function fillMessages(data) {
+        //If there's stuff in the message area and the last 
+        //existing message's sender is the same as the first incoming
+        //message's sender
+        if ($("#message-area").children().last().length != 0
+            && $("#message-area").children().last().hasClass("user") == (data[0] == globals.userID)) {
+            $("#message-area").children().last().removeClass("tri-right");
+        }
+        
         //Data is terminated by empty string
         //and is in the form id, message, id,
         //message etc.
@@ -68,7 +76,10 @@ function chatInit() {
             },
             url: SERVER_ADDRESS + "/chat.php",
             success: function(data) {
-                fillMessages(data);
+                console.log(data);  
+                if (data[0] != "") {
+                    fillMessages(data);
+                }
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus);
