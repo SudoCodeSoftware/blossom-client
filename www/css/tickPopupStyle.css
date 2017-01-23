@@ -1,12 +1,12 @@
 .new_match_poppup {
-    left: 20vw;
+    left: 2vw;
     top: 30vh;
-    width:60vw;
-    height:35vh;
+    width:95.4vw;
+    height:30vh;
     background-color: white;
     border-radius: 10px;
     position: fixed;
-    border: 1px solid #14947b;
+    box-shadow: 5px 1px 5px rgba(212,213,215,0.5);
 }
 
 .new_match_poppup button {
