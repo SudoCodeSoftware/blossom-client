@@ -27,9 +27,14 @@ function matchInit() {
                 console.log(data);
                 if (data[0] != '0') {   //The other person matched
                     $("#match-ticked-popup").load("tickPopup.html", function() {
+                        
                         $("#close-match-popup").click(function() {
                             $("#match-ticked-popup").html("");
                         });
+                        
+                        $("#match-popup-match-pic").css("background-image", "url('" + data[1].cover + "')");
+                        
+                        $("#new_match_poppup_user_name").html(data[1].name);
                     });
                 }
             },

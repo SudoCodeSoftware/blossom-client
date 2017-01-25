@@ -2,6 +2,7 @@ function chatInit() {
     globals.currentPage = "CHAT";
     
     var interval = null;    //Variable for the checking for new messages polling
+    var currentMessageMarker = -1;    //How many messages from the oldest we have not got
     
     $("#contact-name").html(globals.messages.contactName);
     $("#contact-pic").css("background-image", "url('" + globals.messages.contactImgURL + "')");
@@ -15,14 +16,11 @@ function chatInit() {
             $("#message-area").children().last().removeClass("tri-right");
         }
         
-        //Data is terminated by empty string
-        //and is in the form id, message, id,
-        //message etc.
-        for (var i = 0; data[i] != ""; i += 2) {
+        for (var i = 0; i < data.length; i += 2) {
             var id = data[i];
             var nextID = data[i + 2];
             var message = data[i + 1];
-
+            
             if (id == globals.userID) {
                 if (nextID != globals.userID) {
                     $("#message-area").append('\
@@ -76,7 +74,6 @@ function chatInit() {
             },
             url: SERVER_ADDRESS + "/chat.php",
             success: function(data) {
-                console.log(data);  
                 if (data[0] != "") {
                     fillMessages(data);
                 }
@@ -100,11 +97,12 @@ function chatInit() {
         data: {
             ato: globals.accessToken,
             contact_id: globals.messages.contactID,
-            req_type: "check"
+            req_type: "check",
+            marker: currentMessageMarker
         },
         url: SERVER_ADDRESS + "/chat.php",
         success: function(data) {
-            fillMessages(data);
+            fillMessages(data[0]);
             setInterval(updateMessages, 3000);
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
