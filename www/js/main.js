@@ -4,9 +4,9 @@ var globals = {};   //Can have stuff shoved in it for communication between page
 var SERVER_ADDRESS = "https://www.sudo-code.com/cgi-bin";
 
 $(document).ready(function() {
-    pageTransition("splash.html", function() {});
     
     globals.accessToken = window.localStorage.getItem("accessToken");
+    globals.userID = window.localStorage.getItem("userID");
     
     //if (device.platform != "browser") {
         initApp();  //This happens in statusChangeCallback for browser
@@ -14,13 +14,12 @@ $(document).ready(function() {
 });
 
 function initApp() {
-    if (globals.accessToken == undefined) {
+    if (globals.accessToken == undefined || globals.userID == undefined) {
         pageTransition("login.html", loginInit);
     }
     
     else {
-        pageTransition("login.html", loginInit);
-        //verifyAccessToken();
+        verifyAccessToken();
     }
 }
 
