@@ -2,7 +2,7 @@
     left: 2vw;
     top: 30vh;
     width:95.4vw;
-    height:30vh;
+    height:34vh;
     background-color: white;
     border-radius: 10px;
     position: fixed;
@@ -31,6 +31,8 @@
 }
 
 .new_match_poppup_user_image {
+    margin-top: 10px;
+    margin-bottom: 10px;
     height: 15vh;
     width: 15vh;
     display: block;
