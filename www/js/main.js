@@ -4,6 +4,7 @@ var globals = {};   //Can have stuff shoved in it for communication between page
 var SERVER_ADDRESS = "https://www.sudo-code.com/cgi-bin";
 
 $(document).ready(function() {
+    $("#page2").hide();
     
     globals.accessToken = window.localStorage.getItem("accessToken");
     globals.userID = window.localStorage.getItem("userID");
@@ -94,6 +95,7 @@ function pageTransition(pageURL, initFunction) {
 }
 
 function verifyAccessToken() {
+    console.log(globals.accessToken);
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -103,7 +105,9 @@ function verifyAccessToken() {
         url: SERVER_ADDRESS + '/login.php',
         success: function(data) {
             globals.profilePicURL = data[1];
-
+            //pageTransition("signup/page1.html", signupPage1);
+            
+            
             if (data[0] === "2") {    //Username authentication failure
                 pageTransition("login.html", loginInit);
             }

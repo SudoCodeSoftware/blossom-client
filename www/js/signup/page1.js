@@ -1,15 +1,18 @@
 function signupPage1() {
     $.ajax({
         type: "POST",
-        dataType: "json",
+        //dataType: "json",
         data: {
-            at: fbResponse.authResponse.accessToken
+            ato: globals.accessToken,
+            type: "signup_personal",
+            DOB: "420",
+            preference: "attack helicopters"
         },
-        url: SERVER_ADDRESS + '/login.php',
+        url: SERVER_ADDRESS + '/user_details.php',
         success: function(data) {
             console.log(data);
-            $("#firstnameInput").val(data[1].split(' ')[0])
-            $("#lastnameInput").val(data[1].split(' ')[1])
+            //$("#firstnameInput").val(data[1].split(' ')[0])
+            //$("#lastnameInput").val(data[1].split(' ')[1])
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
         $("#infoText").html("Connection Failure)");
@@ -22,7 +25,11 @@ function signupPage1() {
             $.ajax({
                 type: "POST",
                 dataType: "json",
-                data: {ato: fbResponse.authResponse.accessToken, type: "signup_personal", DOB: $("#userDOB").val(), pref: $("#preferenceInput").val()},
+                data: {
+                    ato: globals.accessToken, 
+                    type: "signup_personal", 
+                    DOB: $("#userDOB").val(), 
+                    pref: $("#preferenceInput").val()},
                 url:  SERVER_ADDRESS + '/user_details.php',
                 success: function(data){
                     console.log(data);

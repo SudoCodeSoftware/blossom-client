@@ -1,6 +1,6 @@
 function loginInit() {
     globals.currentPage = "LOGIN";
-
+    
     setInterval(function() { 
         $('#slideshow > div:first')
             .fadeOut(2000)
@@ -10,7 +10,7 @@ function loginInit() {
             .appendTo('#slideshow');
     }, 6000);
     
-    document.getElementById("mainloader").style.visibility = 'hidden';
+    //document.getElementById("mainloader").style.visibility = 'hidden';
     
     //Login on the login page clicked
     $("#login").click(function() {
@@ -27,9 +27,9 @@ function loginInit() {
                 }
 
                 var fbLoginSuccess = function (userData) {
-                    var fbAuthResponse = userData.authResponse;
-                    globals.accessToken = fbAuthResponse.accessToken;
-                    globals.userID = fbAuthResponse.userID;
+                    globals.fbAuthResponse = userData.authResponse;
+                    globals.accessToken = globals.fbAuthResponse.accessToken;
+                    globals.userID = globals.fbAuthResponse.userID;
                     
                     window.localStorage.setItem('accessToken', globals.accessToken);
                     window.localStorage.setItem('userID', globals.userID);
