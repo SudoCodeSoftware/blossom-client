@@ -28,7 +28,7 @@
     font-size: 15vw;
     position: fixed;
     text-shadow:
-   -3px -3px 0 #16a085,  
+   -3px -3px 0 #16a085,
     3px -3px 0 #16a085,
     -3px 3px 0 #16a085,
      3px 3px 0 #16a085;
@@ -93,7 +93,7 @@
 }
 
 .society-list li {
-    margin:0 0 1vh 0; 
+    margin:0 0 1vh 0;
 }
 
 .profile-button {
@@ -112,4 +112,8 @@
 
 .profile-button-wide {
     width: 20vw;
+}
+
+.profile-button-top-margin {
+    margin-top: 10px;
 }
