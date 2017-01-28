@@ -7,6 +7,22 @@
         <p>Studying <span id="profile-degree"></span> at <span id="profile-uni"></span></p>
     </div>
 
+
+    <select id="facultyInput" class="centered profile-feedback-input">
+        <option value="" disabled selected>faculty</option>
+        <option value="faculty-code">Arts</option>
+        <option value="faculty-code">Business</option>
+        <option value="faculty-code">Science</option>
+    </select>
+    <select id="degreeInput" class="centered profile-feedback-input">
+        <option value="" disabled selected>degree</option>
+        <option value="degree-code">b. Advanced Mathematics</option>
+        <option value="degree-code">b. Advanced Science</option>
+        <option value="degree-code">b. Psychology</option>
+        <option value="degree-code">b. Medical Science</option>
+        <option value="degree-code">b. Science/Arts</option>
+    </select>
+
     <a href="#" id="profile-studying-uni-change" class="profile-button profile-button-top-margin profile-button-wide centered">change</a>
 
     <div class="separator centered"></div>
@@ -22,10 +38,26 @@
     <div class="profile-title centered"><p>Societies</p></div>
 
     <div class="description-box">
-        <ul id="profile-societies" class="society-list">
-
-        </ul>
+        <table id="profile-societies" class="society-list">
+            <tr>
+                <td class="engulf">• Tea &amp; Coffee</td>
+                <td class="delete-col"><i class="fa fa-times-circle-o" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+                <td class="engulf">• AnimeSoc</td>
+                <td class="delete-col"><i class="fa fa-times-circle-o" aria-hidden="true"></i></td>
+            </tr>
+        </table>
     </div>
+
+    <select id="societyInput" class="centered profile-feedback-input">
+        <option value="" disabled selected>society</option>
+        <option value="soc-code">BSoc</option>
+        <option value="soc-code">UNSW Equestrian</option>
+        <option value="soc-code">Tea &amp; Coffee</option>
+        <option value="soc-code">AnimeSoc</option>
+        <option value="soc-code">Karl Marx Dick-Riding Soc</option>
+    </select>
 
     <div class="space-5"/>
 

@@ -50,6 +50,9 @@
 #codeInput {
 	background-image: url(../res/assets/icons/code.png);
 }
+#societyInput {
+	background-image: url(../res/assets/icons/societies.png);
+}
 
 .push-down {
 	margin-top: 5vh;
