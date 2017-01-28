@@ -16,8 +16,6 @@ function profileInit() {
         },
         url: SERVER_ADDRESS + '/settings.php',
         success: function(data) {
-            console.log(data);
-            
             $("#profile-image").css("background-image", "url('" + data.cover + "')");
             $("#profile-name").html(data.username);
             $("#profile-age").html(data.age);
