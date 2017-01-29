@@ -1,5 +1,6 @@
 function matchInit() {
     globals.currentPage = "MATCH";
+    globals.match = {};
     
     $("#user-portrait").css("background-image", "url('" + globals.profilePicURL + "')");
     
@@ -51,6 +52,7 @@ function matchInit() {
     });
     
     $("#user-portrait").click(function() {
+        globals.match.userSelected = globals.userID;
         pageTransition("profile.html", profileInit);
     });
     
@@ -104,6 +106,11 @@ function matchInit() {
             $("#card-2-age").html(matches[0].age);
             $("#card-2-image").css("background-image", "url('" + matches[0].photo + "')");
             
+            $("#card-2-image").click(function() {
+                globals.match.userSelected = matches[0].fb_id;
+                pageTransition("profile.html", profileInit);
+            });
+            
             if (matches[0].photo === null) {
                 $("#card-1-image").css("background-color", "black");
             }
@@ -134,6 +141,11 @@ function matchInit() {
             $("#card-1-name").html(matches[0].name);
             $("#card-1-age").html(matches[0].age);
             $("#card-1-image").css("background-image", "url('" + matches[0].photo + "')");
+            
+            $("#card-1-image").click(function() {
+                globals.match.userSelected = matches[0].fb_id;
+                pageTransition("profile.html", profileInit);
+            });
             
             if (matches[0].photo === null) {
                 $("#card-1-image").css("background-color", "black");

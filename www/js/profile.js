@@ -11,7 +11,7 @@ function profileInit() {
         dataType: "json",
         data: {
             ato: globals.accessToken,
-            user_id: globals.userID,
+            user_id: globals.match.userSelected,
             req_type: "getProfile"
         },
         url: SERVER_ADDRESS + '/settings.php',
