@@ -1,0 +1,52 @@
+.checkbox-area {
+    width: 69%;
+    margin-left: 15.5%;
+}
+
+label {
+  position: relative;
+  font-size: 1.2em;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+input[type="checkbox"] + label::before,
+input[type="radio"] + label::before {
+  content: '\a0';
+  display: inline-block;
+  margin: .2em .5em;
+  width: 2em;
+  height: 2em;
+  line-height: 2.3em;
+  transition: all .5s;
+  border: 1px solid silver;
+}
+
+input[type="radio"] + label::before {
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label::before {
+  content: '\a0';
+  background: #16a085;
+  border: 1px solid white;
+  box-shadow: inset 0 0 0 1px white, 0 0 0 1px #16a085;
+}
+
+.delete-account-button {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 50vw;
+  padding: 1vh;
+  text-align: center;
+  font-size: 5vw;
+  border-radius: 3px;
+  background: #ED3B50;
+	color: white;
+  text-decoration: none;
+}
