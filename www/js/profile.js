@@ -1,6 +1,8 @@
 function profileInit() {
     currentPage = "PROFILE";
     
+    var studyingUniChangeActive = false;
+    
     //The back button is clicked
     $("#close-button").click(function() {
         pageTransition("match.html", matchInit);
@@ -17,8 +19,23 @@ function profileInit() {
     }
     
     $("#profile-studying-uni-change").click(function() {
-        $("#profile-faculty-input").show();
-        $("#profile-degree-input").show();
+        if (studyingUniChangeActive) {
+            $("#profile-faculty-input").hide();
+            $("#profile-degree-input").hide();
+            
+            $("#profile-studying-uni-change").html("change");
+            
+            studyingUniChangeActive = false;
+        }
+        
+        else {
+            $("#profile-faculty-input").show();
+            $("#profile-degree-input").show();
+            
+            $("#profile-studying-uni-change").html("submit");
+            
+            studyingUniChangeActive = true;
+        }
     });
     
     $.ajax({
