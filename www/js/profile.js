@@ -6,12 +6,18 @@ function profileInit() {
         pageTransition("match.html", matchInit);
     });
     
+    if (globals.profile.userSelected != globals.userID) {
+        $("#profile-studying-uni-change").hide();
+        $("#profile-description-change").hide();
+        $("#profile-socieities-change").hide();
+    }
+    
     $.ajax({
         type: "POST",
         dataType: "json",
         data: {
             ato: globals.accessToken,
-            user_id: globals.match.userSelected,
+            user_id: globals.profile.userSelected,
             req_type: "getProfile"
         },
         url: SERVER_ADDRESS + '/settings.php',
