@@ -1,6 +1,5 @@
 function matchInit() {
     globals.currentPage = "MATCH";
-    globals.match = {};
     
     $("#user-portrait").css("background-image", "url('" + globals.profilePicURL + "')");
     
@@ -52,7 +51,7 @@ function matchInit() {
     });
     
     $("#user-portrait").click(function() {
-        globals.match.userSelected = globals.userID;
+        globals.profile.userSelected = globals.userID;
         pageTransition("profile.html", profileInit);
     });
     
@@ -107,7 +106,7 @@ function matchInit() {
             $("#card-2-image").css("background-image", "url('" + matches[0].photo + "')");
             
             $("#card-2-image").click(function() {
-                globals.match.userSelected = matches[0].fb_id;
+                globals.profile.userSelected = matches[0].fb_id;
                 pageTransition("profile.html", profileInit);
             });
             
@@ -143,7 +142,7 @@ function matchInit() {
             $("#card-1-image").css("background-image", "url('" + matches[0].photo + "')");
             
             $("#card-1-image").click(function() {
-                globals.match.userSelected = matches[0].fb_id;
+                globals.profile.userSelected = matches[0].fb_id;
                 pageTransition("profile.html", profileInit);
             });
             

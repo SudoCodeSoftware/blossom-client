@@ -9,6 +9,8 @@ $(document).ready(function() {
     globals.accessToken = window.localStorage.getItem("accessToken");
     globals.userID = window.localStorage.getItem("userID");
     
+    globals.profile = {};
+    
     //if (device.platform != "browser") {
         initApp();  //This happens in statusChangeCallback for browser
     //}
