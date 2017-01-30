@@ -10,6 +10,9 @@ function profileInit() {
         $("#profile-studying-uni-change").hide();
         $("#profile-description-change").hide();
         $("#profile-socieities-change").hide();
+        
+        $("#profile-faculty-input").hide();
+        $("#profile-degree-input").hide();
     }
     
     $.ajax({
