@@ -16,6 +16,11 @@ function profileInit() {
         $("#profile-socieities-change").hide();
     }
     
+    $("#profile-studying-uni-change").click(function() {
+        $("#profile-faculty-input").show();
+        $("#profile-degree-input").show();
+    });
+    
     $.ajax({
         type: "POST",
         dataType: "json",
