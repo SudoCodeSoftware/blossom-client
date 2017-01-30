@@ -25,12 +25,12 @@
     color: #DEDEDE;
 }
 
-#messages-side {
+#messages-side, #settings-messages-side {
     text-align: left;
     float: right;
     cursor:pointer;
 }
-#messages-side:active {
+#messages-side:active, #settings-messages-side:active {
     color: #DEDEDE;
 }
 
@@ -50,7 +50,7 @@
     display: block;
     position: absolute;
     top: 0;
-    left:0; 
+    left:0;
     right:0;
     cursor:pointer;
     z-index: 5;
@@ -74,7 +74,7 @@
     display: block;
     position: absolute;
     top: 3%;
-    left:0; 
+    left:0;
     right:0;
     border: 2px solid #14947b;
     background-size: cover;
