@@ -6,13 +6,14 @@ function profileInit() {
         pageTransition("match.html", matchInit);
     });
     
+    //Only shown if they press the change button
+    $("#profile-faculty-input").hide();
+    $("#profile-degree-input").hide();
+    
     if (globals.profile.userSelected != globals.userID) {
         $("#profile-studying-uni-change").hide();
         $("#profile-description-change").hide();
         $("#profile-socieities-change").hide();
-        
-        $("#profile-faculty-input").hide();
-        $("#profile-degree-input").hide();
     }
     
     $.ajax({
