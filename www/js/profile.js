@@ -19,7 +19,41 @@ function profileInit() {
     }
     
     $("#profile-studying-uni-change").click(function() {
-        if (studyingUniChangeActive) {
+        if (studyingUniChangeActive) {  //We're deactivating edit mode and submitting
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: {
+                    ato: globals.accessToken,
+                    req_type: "editProfile",
+                    field: "faculty",
+                    data: $("#profile-faculty-input").find(":selected").text()
+                },
+                url: SERVER_ADDRESS + '/settings.php',
+                success: function(data) {
+                    console.log(data);
+                },
+            }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+               console.log(textStatus);
+            });
+            
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: {
+                    ato: globals.accessToken,
+                    req_type: "editProfile",
+                    field: "degree",
+                    data: $("#profile-degree-input").find(":selected").text()
+                },
+                url: SERVER_ADDRESS + '/settings.php',
+                success: function(data) {
+                    console.log(data);
+                },
+            }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+               console.log(textStatus);
+            });
+            
             $("#profile-faculty-input").hide();
             $("#profile-degree-input").hide();
             
@@ -28,7 +62,7 @@ function profileInit() {
             studyingUniChangeActive = false;
         }
         
-        else {
+        else {  //We're activiting edit mode
             $("#profile-faculty-input").show();
             $("#profile-degree-input").show();
             

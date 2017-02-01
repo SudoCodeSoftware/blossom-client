@@ -102,6 +102,7 @@ function chatInit() {
         },
         url: SERVER_ADDRESS + "/chat.php",
         success: function(data) {
+            console.log(data);
             fillMessages(data[0]);
             setInterval(updateMessages, 3000);
         },
