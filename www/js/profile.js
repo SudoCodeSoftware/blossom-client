@@ -2,6 +2,7 @@ function profileInit() {
     currentPage = "PROFILE";
     
     var studyingUniChangeActive = false;
+    var descriptionChangeActive = false;
     
     //The back button is clicked
     $("#close-button").click(function() {
@@ -11,6 +12,7 @@ function profileInit() {
     //Only shown if they press the change button
     $("#profile-faculty-input").hide();
     $("#profile-degree-input").hide();
+    $("#profile-description-input").hide();
     
     if (globals.profile.userSelected != globals.userID) {
         $("#profile-studying-uni-change").hide();
@@ -70,6 +72,43 @@ function profileInit() {
             
             studyingUniChangeActive = true;
         }
+    });
+    
+    $("#profile-description-change").click(function() {
+        if (descriptionChangeActive) {  //We're deactivating edit mode and submitting
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: {
+                    ato: globals.accessToken,
+                    req_type: "editProfile",
+                    field: "description",
+                    data: $("#profile-description-input").val()
+                },
+                url: SERVER_ADDRESS + '/settings.php',
+                success: function(data) {
+                    console.log(data);
+                },
+            }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+               console.log(textStatus);
+            });
+            
+            $("#profile-description-change").html("edit");
+            $("#profile-description-input").hide();
+            $("#profile-description").show();
+            
+            descriptionChangeActive = false;
+        }
+        
+        else { //We're activating edit mode
+            $("#profile-description-input").val($("#profile-description").html());
+            $("#profile-description-input").show();
+            $("#profile-description").hide();
+            $("#profile-description-change").html("submit");
+            
+            descriptionChangeActive = true;
+        }
+        
     });
     
     $.ajax({
