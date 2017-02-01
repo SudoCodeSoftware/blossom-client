@@ -9,25 +9,32 @@
     box-shadow: 5px 1px 5px rgba(212,213,215,0.5);
 }
 
-.new_match_poppup button {
-    z-index: 5000;
-    background: #16a085;
-    border: 0;
-    border-bottom: 2px solid #14947b;
-    cursor: pointer;
-    -webkit-box-shadow: inset 0 -2px #14947b;
-    box-shadow: inset 0 -2px #14947b;
-    width: 80%;
-    height: 20%;
-    color: white;
+.popup_heading {
+    font-size: 5vh;
+    font-weight: bold;
 }
-.new_match_poppup button:hover {
-    background: #169C81;
+
+.delete_account_poppup {
+    left: 10vw;
+    top: 30vh;
+    width:80vw;
+    height:30vh;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    box-shadow: 5px 1px 5px rgba(212,213,215,0.5);
 }
-.new_match_poppup button:active {
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+
+.delete_account_poppup table {
+    width: 100%;
+}
+
+#cancel-delete-account {
+    background-color: #666;
+}
+
+#confirm-delete-account {
+    background-color: #ED3B50;
 }
 
 .new_match_poppup_user_image {
@@ -43,4 +50,9 @@
 
 .new_match_poppup_text {
     text-align: center;
+}
+
+.delete_account_poppup_text {
+    margin: 10px;
+    font-size: 2.8vh;
 }
