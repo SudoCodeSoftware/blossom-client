@@ -70,10 +70,12 @@ function chatInit() {
             data: {
                 ato: globals.accessToken,
                 contact_id: globals.messages.contactID,
-                req_type: "check_cache"
+                req_type: "check_cache",
             },
             url: SERVER_ADDRESS + "/chat.php",
             success: function(data) {
+                console.log(data);
+                
                 if (data[0] != "") {
                     fillMessages(data);
                 }
@@ -104,10 +106,34 @@ function chatInit() {
         success: function(data) {
             console.log(data);
             fillMessages(data[0]);
+            currentMessageMarker = data[1];
             setInterval(updateMessages, 3000);
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
         console.log(textStatus);
+    });
+    
+    $("#chat-load-more-messages").click(function() {
+        //Fill the messages list
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: {
+                ato: globals.accessToken,
+                contact_id: globals.messages.contactID,
+                req_type: "check",
+                marker: currentMessageMarker
+            },
+            url: SERVER_ADDRESS + "/chat.php",
+            success: function(data) {
+                console.log(data);
+                console.log(currentMessageMarker);
+                fillMessages(data[0]);
+                currentMessageMarker = data[1];
+            },
+        }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+            console.log(textStatus);
+        });
     });
     
     $("#chat-submit").click(function() {

@@ -56,10 +56,11 @@ function profileInit() {
                console.log(textStatus);
             });
             
+            $("#profile-degree").html($("#profile-degree-input").find(":selected").text());
+            $("#profile-studying-uni-change").html("change");
+            
             $("#profile-faculty-input").hide();
             $("#profile-degree-input").hide();
-            
-            $("#profile-studying-uni-change").html("change");
             
             studyingUniChangeActive = false;
         }
@@ -93,7 +94,9 @@ function profileInit() {
                console.log(textStatus);
             });
             
+            $("#profile-description").html($("#profile-description-input").val());
             $("#profile-description-change").html("edit");
+            
             $("#profile-description-input").hide();
             $("#profile-description").show();
             
