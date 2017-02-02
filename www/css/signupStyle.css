@@ -23,7 +23,7 @@
     -webkit-appearance: none;
 }
 
-#firstnameInput, #lastnameInput {
+#nameInput {
 	background-image: url(../res/assets/icons/name.png);
 }
 #userDOB {
@@ -31,9 +31,6 @@
 }
 #preferenceInput {
 	background-image: url(../res/assets/icons/gender.png);
-}
-#zIDInput {
-	background-image: url(../res/assets/icons/id.png);
 }
 #signup-p2-emailInput {
 	background-image: url(../res/assets/icons/email.png);
