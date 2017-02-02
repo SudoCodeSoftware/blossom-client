@@ -109,7 +109,6 @@ function verifyAccessToken() {
             globals.profilePicURL = data[1];
             //pageTransition("signup/page1.html", signupPage1Init);
             
-            
             if (data[0] === "2") {    //Username authentication failure
                 pageTransition("login.html", loginInit);
             }
