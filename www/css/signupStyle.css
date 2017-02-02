@@ -35,10 +35,10 @@
 #signup-p2-emailInput {
 	background-image: url(../res/assets/icons/email.png);
 }
-#facultyInput {
+#facultyInput, #profile-faculty-input {
 	background-image: url(../res/assets/icons/faculty.png);
 }
-#degreeInput {
+#degreeInput, #profile-degree-input {
 	background-image: url(../res/assets/icons/degree.png);
 }
 #yearInput {
