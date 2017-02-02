@@ -1,4 +1,4 @@
-function signupPage1() {
+function signupPage1Init() {
     $.ajax({
         type: "POST",
         //dataType: "json",
@@ -20,7 +20,7 @@ function signupPage1() {
     });
     
     //The sign up button on the sign up page was pressed
-    $("#next").click(function() {
+    $("#signup-p1-next").click(function() {
             $("#infoText").html("Validating...");
             $.ajax({
                 type: "POST",
@@ -34,11 +34,10 @@ function signupPage1() {
                 success: function(data){
                     console.log(data);
                     if (data[0] === "1") {
-                        $("#infoText").html("Data Updated");
-                        pageTransition("signup/page2.html", signupPage2);
+                        pageTransition("signup/page2.html", signupPage2Init);
                     }
                     else if (data === "2") {
-                        $("#infoText").html("Authentication Failed");
+                        $("#infoText").html("Signup failed");
                         pageTransition("login.html", loginInit);
                     }
                 },

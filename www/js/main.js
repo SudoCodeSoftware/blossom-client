@@ -107,9 +107,9 @@ function verifyAccessToken() {
         url: SERVER_ADDRESS + '/login.php',
         success: function(data) {
             globals.profilePicURL = data[1];
-            //pageTransition("signup/page1.html", signupPage1);
+            pageTransition("signup/page1.html", signupPage1Init);
             
-            
+            /*
             if (data[0] === "2") {    //Username authentication failure
                 pageTransition("login.html", loginInit);
             }
@@ -117,8 +117,8 @@ function verifyAccessToken() {
                 pageTransition("match.html", matchInit);
             }
             else if (data[0] === "1b") {   //Success (User doesn't already exist)
-                pageTransition("signup/page1.html", signupPage1);
-            }
+                pageTransition("signup/page1.html", signupPage1Init);
+            }*/
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
         console.log(textStatus);

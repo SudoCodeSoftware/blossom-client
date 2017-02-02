@@ -1,16 +1,22 @@
-function signupPage2() {
+function signupPage2Init() {
     $("#next").click(function() {
-        $("#infoText").html("Validating...");
         $.ajax({
             type: "POST",
             dataType: "json",
-            data: {type: "signup_uni", email: $("#emailInput").val(), zid: $("#zIDInput").val(), degree: $("#degreeInput").val() , faculty:$("#faculty1Input").val() + String.fromCharCode(31) +$("#faculty2Input").val() , year: $("#yearInput").val(), ato: fbResponse.authResponse.accessToken },
+            data: {
+                type: "signup_uni", 
+                email: $("#emailInput").val(), 
+                zid: $("#zIDInput").val(), 
+                degree: $("#degreeInput").val(), 
+                faculty:$("#faculty1Input").val() + String.fromCharCode(31) +$("#faculty2Input").val(), 
+                year: $("#yearInput").val(), 
+                ato: globals.accessToken },
             url: SERVER_ADDRESS + '/user_details.php',
             success: function(data) {
                 console.log(data);
                 if (data[0] === "1") {
                     $("#infoText").html("Data Updated");
-                    pageTransition("home.html", homeInit);
+                    pageTransition("signup/page3.html", signupPage3Init);
                 }
                 else if (data === "2") {
                     $("#infoText").html("Authentication Failed");

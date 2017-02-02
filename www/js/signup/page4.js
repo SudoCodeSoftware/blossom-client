@@ -1,0 +1,3 @@
+function signupPage4Init() {
+    
+}
