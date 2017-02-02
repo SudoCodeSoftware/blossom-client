@@ -164,12 +164,12 @@
 }
 
 .name-banner {
-    height: 16%;
+    height: 8%;
     width: 16vh;
     display: block;
     position: absolute;
     top: 7.3vh;
-    left:0; 
+    left:0;
     right:0;
     cursor:pointer;
     z-index: 5;
@@ -180,7 +180,7 @@
 
 .match-portrait-mini {
     background-color: white;
-		border-radius: 50%;
+	border-radius: 50%;
     height: 10vh;
     width: 10vh;
     display: block;
@@ -189,7 +189,7 @@
     cursor:pointer;
     margin-left: 0.5%;
     margin-right: 0.5%;
-    margin-top: 38%;
+    margin-top: 5vh;
     display:inline-block
 }
 .match-portrait-mini:active {
