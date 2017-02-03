@@ -4,11 +4,6 @@ function profileInit() {
     var studyingUniChangeActive = false;
     var descriptionChangeActive = false;
     
-    //The back button is clicked
-    $("#close-button").click(function() {
-        pageTransition("match.html", matchInit);
-    });
-    
     //Only shown if they press the change button
     $("#profile-faculty-input").hide();
     $("#profile-degree-input").hide();
@@ -19,6 +14,11 @@ function profileInit() {
         $("#profile-description-change").hide();
         $("#profile-socieities-change").hide();
     }
+    
+    //The back button is clicked
+    $("#close-button").click(function() {
+        pageTransition("match.html", matchInit);
+    });
     
     $("#profile-studying-uni-change").click(function() {
         if (studyingUniChangeActive) {  //We're deactivating edit mode and submitting
@@ -114,6 +114,29 @@ function profileInit() {
         
     });
     
+    $("#profile-faculty-input").change(function() {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: {
+                ato: globals.accessToken,
+                req_type: "retrieveDegrees",
+                faculty: $("#profile-faculty-input").find(":selected").text()
+            },
+            url: SERVER_ADDRESS + '/settings.php',
+            success: function(data) {
+                console.log(data);
+                $("#profile-degree-input").html('<option value="" disabled selected>degree</option>');
+                
+                for (var i = 0; i < data.length; i++) {
+                    $("#profile-degree-input").append('<option value="degree-code">' + data[i] + '</option>');
+                }
+            },
+        }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+           console.log(textStatus);
+        });
+    });
+    
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -133,6 +156,23 @@ function profileInit() {
             
             for (var i = 0; i < data.societies.length; i++) {
                 $("#profile-societies").append("<li>- " + data.societies[i] + "</li>")
+            }
+        },
+    }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+       console.log(textStatus);
+    });
+    
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        data: {
+            ato: globals.accessToken,
+            req_type: "retrieveFaculties"
+        },
+        url: SERVER_ADDRESS + '/settings.php',
+        success: function(data) {
+            for (var i = 0; i < data.length; i++) {
+                $("#profile-faculty-input").append('<option value="faculty-code">' + data[i] + '</option>');
             }
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
