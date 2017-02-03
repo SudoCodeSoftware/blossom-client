@@ -72,7 +72,7 @@ function chatInit() {
             $("#message-area").children().last().removeClass("tri-right");
         }
         
-        for (var i = data.length - 2; i <= 0; i -= 2) {
+        for (var i = data.length - 2; i >= 0; i -= 2) {
             var id = data[i];
             var nextID = data[i + 2];
             var message = data[i + 1];
