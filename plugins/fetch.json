@@ -7,11 +7,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "phonegap-facebook-plugin": {
+    "cordova-plugin-facebook4": {
         "source": {
-            "type": "git",
-            "url": "https://github.com/Wizcorp/phonegap-facebook-plugin/",
-            "subdir": "."
+            "type": "registry",
+            "id": "cordova-plugin-facebook4"
         },
         "is_top_level": true,
         "variables": {

@@ -10,7 +10,7 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
-        "phonegap-facebook-plugin": {
+        "cordova-plugin-facebook4": {
             "APP_ID": "303510073316531",
             "APP_NAME": "Blossom",
             "PACKAGE_NAME": "io.cordova.hellocordova"
