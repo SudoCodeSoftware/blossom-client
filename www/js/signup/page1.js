@@ -1,4 +1,6 @@
 function signupPage1Init() {
+    globals.currentPage = "SIGNUP_P1";
+    
     $.ajax({
         type: "POST",
         //dataType: "json",

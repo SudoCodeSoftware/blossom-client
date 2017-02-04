@@ -1,5 +1,5 @@
 function profileInit() {
-    currentPage = "PROFILE";
+    globals.currentPage = "PROFILE";
     
     var studyingUniChangeActive = false;
     var descriptionChangeActive = false;

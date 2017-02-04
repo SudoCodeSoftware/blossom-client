@@ -1,5 +1,5 @@
 function settingsInit() {
-    currentPage = "SETTINGS";
+    globals.currentPage = "SETTINGS";
 
     //The back button is clicked
     $("#settings-messages-side").click(function() {

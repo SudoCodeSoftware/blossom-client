@@ -1,4 +1,6 @@
 function signupPage2Init() {
+    globals.currentPage = "SIGNUP_P2";
+    
     $("#next").click(function() {
         $.ajax({
             type: "POST",

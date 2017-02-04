@@ -120,25 +120,30 @@ function chatInit() {
     }
     
     function updateMessages() {
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            data: {
-                ato: globals.accessToken,
-                contact_id: globals.messages.contactID,
-                req_type: "check_cache",
-            },
-            url: SERVER_ADDRESS + "/chat.php",
-            success: function(data) {
-                console.log(data);
-                
-                if (data[0] != "") {
-                    appendMessages(data);
-                }
-            },
-        }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
-            console.log(textStatus);
-        });
+        if (globals.currentPage != "CHAT") {
+            clearInterval(interval);    //Halt message updates
+        } else {
+        
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: {
+                    ato: globals.accessToken,
+                    contact_id: globals.messages.contactID,
+                    req_type: "check_cache",
+                },
+                url: SERVER_ADDRESS + "/chat.php",
+                success: function(data) {
+                    console.log(data);
+
+                    if (data[0] != "") {
+                        appendMessages(data);
+                    }
+                },
+            }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+                console.log(textStatus);
+            });
+        }
     }
     
     //The back button on the contacts page is clicked
@@ -163,7 +168,7 @@ function chatInit() {
             console.log(data);
             appendMessages(data[0]);
             currentMessageMarker = data[1];
-            setInterval(updateMessages, 3000);
+            interval = setInterval(updateMessages, 3000);
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
         console.log(textStatus);
