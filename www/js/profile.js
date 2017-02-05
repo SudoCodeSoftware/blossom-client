@@ -1,15 +1,22 @@
 function profileInit() {
     globals.currentPage = "PROFILE";
     
+    var UNSWSocieties = ["BSoc", "UNSW Equestrian", "Tea &amp; Coffee", "AnimeSoc", "Karl Marx Dick-Riding Soc"];
+    var UTSSocities = ["VidyaSoc", "BurritoSoc"];
+    var USydSocieties = ["USydStuff1", "USydStuff2", "USydStuff3"];
+    
     var studyingUniChangeActive = false;
     var descriptionChangeActive = false;
+    var societyChangeActive = false;
     
     var userUniversity;
+    var userSocieties;
     
     //Only shown if they press the change button
     $("#profile-faculty-input").hide();
     $("#profile-degree-input").hide();
     $("#profile-description-input").hide();
+    $("#societyInput").hide();
     
     //If it's another user's profile (they can't edit it)
     if (globals.profile.userSelected != globals.userID) {
@@ -140,6 +147,81 @@ function profileInit() {
         });
     });
     
+    $("#societyInput").change(function() {
+        userSocieties.push($("#societyInput").find(":selected").text()) 
+    });
+    
+    $("#profile-socieities-change").click(function() {
+        
+        //We're closing edit mode. Submit and close
+        if (societyChangeActive) {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: {
+                    ato: globals.accessToken,
+                    req_type: "editProfile",
+                    field: "societies",
+                    data: userSocieties.join(String.fromCharCode(31))
+                },
+                url: SERVER_ADDRESS + '/settings.php',
+                success: function(data) {
+                    console.log(data);
+                },
+            }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+               console.log(textStatus);
+            });
+            
+            $("#profile-societies").append('\
+                <tr>\
+                    <td class="engulf">• ' + userSocieties[userSocieties.length - 1] + '</td>\
+                    <td class="delete-society-option delete-col"><i class="fa fa-times-circle-o" aria-hidden="true"></i></td>\
+                </tr>'
+            )
+            
+            $("#societyInput").hide();
+            $("#profile-socieities-change").html("change");
+            
+            enableSocietyDelete();
+            
+            societyChangeActive = false;
+        }
+        
+        //We're opening edit mode
+        else {
+            $("#societyInput").show();
+            $("#profile-socieities-change").html("add");
+            
+            societyChangeActive = true;
+        }
+    });
+    
+    //Needs to be re-run every time a new society is added
+    function enableSocietyDelete() {
+        $(".delete-society-option").click(function() {
+            userSocieties.pop();
+
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: {
+                    ato: globals.accessToken,
+                    req_type: "editProfile",
+                    field: "societies",
+                    data: userSocieties.join(String.fromCharCode(31))
+                },
+                url: SERVER_ADDRESS + '/settings.php',
+                success: function(data) {
+                    console.log(data);
+                },
+            }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+               console.log(textStatus);
+            });
+
+            $(this).parent().remove();
+        });
+    }
+    
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -158,29 +240,38 @@ function profileInit() {
             $("#profile-description").html(data.description);
             
             userUniversity = data.uni;
-            var societyArray = data.societies.split(String.fromCharCode(31));
+            userSocieties = data.societies.split(String.fromCharCode(31));
+            
+            if (userSocieties[0] == "") {
+                userSocieties = [];
+            }
+            
+            //Populate the society list
             
             //If it's their own profile (they can edit it)
-            if (globals.profile.userSelected != globals.userID) {
-                for (var i = 0; i < societyArray.length; i++) {
+            if (globals.profile.userSelected == globals.userID) {
+                for (var i = 0; i < userSocieties.length; i++) {
                     $("#profile-societies").append('\
                         <tr>\
-                            <td class="engulf">• ' + societyArray[i] + '</td>\
-                            <td class="delete-col"><i class="fa fa-times-circle-o" aria-hidden="true"></i></td>\
+                            <td class="engulf">• ' + userSocieties[i] + '</td>\
+                            <td class="delete-society-option delete-col"><i class="fa fa-times-circle-o" aria-hidden="true"></i></td>\
                         </tr>'
                     )
                 }
             }
             
+            //It's not their own profile so they can't edit it
             else {
-                for (var i = 0; i < societyArray.length; i++) {
+                for (var i = 0; i < userSocieties.length; i++) {
                     $("#profile-societies").append('\
                         <tr>\
-                            <td class="engulf">• ' + societyArray[i] + '</td>\
+                            <td class="engulf">• ' + userSocieties[i] + '</td>\
                         </tr>'
                     )
                 }
             }
+            
+            enableSocietyDelete();
             
             //Populate the faculty list. This needs to be done after getProfile
             //since we need the university
@@ -201,6 +292,25 @@ function profileInit() {
             }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
                console.log(textStatus);
             });
+            
+            //Populate the society list
+            if (userUniversity == "UNSW") {
+                for (var i = 0; i < UNSWSocieties.length; i++) {
+                    $("#societyInput").append('<option value="soc-code">' + UNSWSocieties[i] + '</option>');
+                }
+            }
+            
+            else if (userUniversity == "UTS") {
+                for (var i = 0; i < UTSSocities.length; i++) {
+                    $("#societyInput").append('<option value="soc-code">' + UTSSocities[i] + '</option>');
+                }
+            }
+            
+            else if (userUniversity == "USyd") {
+                for (var i = 0; i < USydSocieties.length; i++) {
+                    $("#societyInput").append('<option value="soc-code">' + USydSocieties[i] + '</option>');
+                }
+            }
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
        console.log(textStatus);
