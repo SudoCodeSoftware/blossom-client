@@ -97,7 +97,6 @@ function pageTransition(pageURL, initFunction) {
 }
 
 function verifyAccessToken() {
-    console.log(globals.accessToken);
     $.ajax({
         type: "POST",
         dataType: "json",

@@ -4,11 +4,14 @@ function profileInit() {
     var studyingUniChangeActive = false;
     var descriptionChangeActive = false;
     
+    var userUniversity;
+    
     //Only shown if they press the change button
     $("#profile-faculty-input").hide();
     $("#profile-degree-input").hide();
     $("#profile-description-input").hide();
     
+    //If it's another user's profile (they can't edit it)
     if (globals.profile.userSelected != globals.userID) {
         $("#profile-studying-uni-change").hide();
         $("#profile-description-change").hide();
@@ -94,7 +97,7 @@ function profileInit() {
                console.log(textStatus);
             });
             
-            $("#profile-description").html($("#profile-description-input").val());
+            $("#profile-description").html(sanitizeString($("#profile-description-input").val()));
             $("#profile-description-change").html("edit");
             
             $("#profile-description-input").hide();
@@ -154,26 +157,50 @@ function profileInit() {
             $("#profile-uni").html(data.uni);
             $("#profile-description").html(data.description);
             
-            for (var i = 0; i < data.societies.length; i++) {
-                $("#profile-societies").append("<li>- " + data.societies[i] + "</li>")
+            userUniversity = data.uni;
+            var societyArray = data.societies.split(String.fromCharCode(31));
+            
+            //If it's their own profile (they can edit it)
+            if (globals.profile.userSelected != globals.userID) {
+                for (var i = 0; i < societyArray.length; i++) {
+                    $("#profile-societies").append('\
+                        <tr>\
+                            <td class="engulf">• ' + societyArray[i] + '</td>\
+                            <td class="delete-col"><i class="fa fa-times-circle-o" aria-hidden="true"></i></td>\
+                        </tr>'
+                    )
+                }
             }
-        },
-    }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
-       console.log(textStatus);
-    });
-    
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        data: {
-            ato: globals.accessToken,
-            req_type: "retrieveFaculties"
-        },
-        url: SERVER_ADDRESS + '/settings.php',
-        success: function(data) {
-            for (var i = 0; i < data.length; i++) {
-                $("#profile-faculty-input").append('<option value="faculty-code">' + data[i] + '</option>');
+            
+            else {
+                for (var i = 0; i < societyArray.length; i++) {
+                    $("#profile-societies").append('\
+                        <tr>\
+                            <td class="engulf">• ' + societyArray[i] + '</td>\
+                        </tr>'
+                    )
+                }
             }
+            
+            //Populate the faculty list. This needs to be done after getProfile
+            //since we need the university
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: {
+                    ato: globals.accessToken,
+                    req_type: "retrieveFaculties",
+                    university: userUniversity
+                },
+                url: SERVER_ADDRESS + '/settings.php',
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#profile-faculty-input").append('<option value="faculty-code">' + data[i] + '</option>');
+                    }
+                },
+            }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
+               console.log(textStatus);
+            });
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
        console.log(textStatus);
