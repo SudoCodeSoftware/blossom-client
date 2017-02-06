@@ -6,7 +6,7 @@ function signupPage2Init() {
             type: "POST",
             dataType: "json",
             data: {
-                type: "signup_uni", 
+                req_type: "signup_uni", 
                 email: $("#emailInput").val(), 
                 zid: $("#zIDInput").val(), 
                 degree: $("#degreeInput").val(), 

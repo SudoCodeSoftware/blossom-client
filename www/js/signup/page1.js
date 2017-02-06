@@ -29,7 +29,7 @@ function signupPage1Init() {
                 dataType: "json",
                 data: {
                     ato: globals.accessToken, 
-                    type: "signup_personal", 
+                    req_type: "signup_personal", 
                     DOB: $("#userDOB").val(), 
                     pref: $("#preferenceInput").val()},
                 url:  SERVER_ADDRESS + '/user_details.php',
