@@ -15,7 +15,7 @@ function signupPage3Init() {
                 console.log(data);
                 
                 if (data[0] == 0) {    //Correct code
-                    globals.university = data[1];
+                    globals.userUniversity = data[1];
                     pageTransition("signup/page4.html", signupPage4Init);
                 }
                 
