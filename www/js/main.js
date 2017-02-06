@@ -115,6 +115,7 @@ function verifyAccessToken() {
                 pageTransition("match.html", matchInit);
             }
             else if (data[0] === "1b") {   //Success (User doesn't already exist)
+                globals.userName = data[2];
                 pageTransition("signup/page1.html", signupPage1Init);
             }
         },

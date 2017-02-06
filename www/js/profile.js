@@ -1,10 +1,6 @@
 function profileInit() {
     globals.currentPage = "PROFILE";
     
-    var UNSWSocieties = ["BSoc", "UNSW Equestrian", "Tea &amp; Coffee", "AnimeSoc", "Karl Marx Dick-Riding Soc"];
-    var UTSSocities = ["VidyaSoc", "BurritoSoc"];
-    var USydSocieties = ["USydStuff1", "USydStuff2", "USydStuff3"];
-    
     var studyingUniChangeActive = false;
     var descriptionChangeActive = false;
     var societyChangeActive = false;
