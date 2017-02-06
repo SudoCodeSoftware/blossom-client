@@ -3,6 +3,8 @@ function settingsInit() {
     
     var genderPreferences = [];
 
+    $("#settings-delete-popup").hide();
+    
     //The back button is clicked
     $("#settings-messages-side").click(function() {
         pageTransition("match.html", matchInit);
@@ -47,6 +49,10 @@ function settingsInit() {
     });
     
     $("#settings-delete-account").click(function() {
+        $("#settings-delete-popup").show();
+    });
+    
+    $("#confirm-delete-account").click(function() {
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -56,11 +62,15 @@ function settingsInit() {
             },
             url: SERVER_ADDRESS + '/settings.php',
             success: function(data) {
-                console.log(data);
+
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
            console.log(textStatus);
         });
+    });
+    
+    $("#cancel-delete-account").click(function() {
+        $("#settings-delete-popup").hide();
     });
     
     function sendGenderPreferences() {
