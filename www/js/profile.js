@@ -148,7 +148,7 @@ function profileInit() {
     });
     
     $("#societyInput").change(function() {
-        userSocieties.push($("#societyInput").find(":selected").text()) 
+        userSocieties.push($("#societyInput").find(":selected").text());
     });
     
     $("#profile-socieities-change").click(function() {

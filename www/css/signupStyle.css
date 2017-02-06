@@ -26,10 +26,10 @@
 #nameInput {
 	background-image: url(../res/assets/icons/name.png);
 }
-#userDOB {
+.userDOB {
 	background-image: url(../res/assets/icons/dob.png);
 }
-#preferenceInput {
+.preferenceInput {
 	background-image: url(../res/assets/icons/gender.png);
 }
 #signup-p2-emailInput {
