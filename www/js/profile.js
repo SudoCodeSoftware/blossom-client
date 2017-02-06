@@ -147,14 +147,11 @@ function profileInit() {
         });
     });
     
-    $("#societyInput").change(function() {
-        userSocieties.push($("#societyInput").find(":selected").text());
-    });
-    
-    $("#profile-socieities-change").click(function() {
-        
+    $("#profile-socieities-change").click(function() { 
         //We're closing edit mode. Submit and close
-        if (societyChangeActive) {
+        if (societyChangeActive && $("#societyInput").val() != "") {
+            userSocieties.push($("#societyInput").val());
+            
             $.ajax({
                 type: "POST",
                 dataType: "json",
@@ -180,7 +177,7 @@ function profileInit() {
             )
             
             $("#societyInput").hide();
-            $("#profile-socieities-change").html("change");
+            $("#profile-socieities-change").html("add");
             
             enableSocietyDelete();
             
@@ -190,7 +187,7 @@ function profileInit() {
         //We're opening edit mode
         else {
             $("#societyInput").show();
-            $("#profile-socieities-change").html("add");
+            $("#profile-socieities-change").html("submit");
             
             societyChangeActive = true;
         }
@@ -292,25 +289,6 @@ function profileInit() {
             }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
                console.log(textStatus);
             });
-            
-            //Populate the society list
-            if (userUniversity == "UNSW") {
-                for (var i = 0; i < UNSWSocieties.length; i++) {
-                    $("#societyInput").append('<option value="soc-code">' + UNSWSocieties[i] + '</option>');
-                }
-            }
-            
-            else if (userUniversity == "UTS") {
-                for (var i = 0; i < UTSSocities.length; i++) {
-                    $("#societyInput").append('<option value="soc-code">' + UTSSocities[i] + '</option>');
-                }
-            }
-            
-            else if (userUniversity == "USyd") {
-                for (var i = 0; i < USydSocieties.length; i++) {
-                    $("#societyInput").append('<option value="soc-code">' + USydSocieties[i] + '</option>');
-                }
-            }
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
        console.log(textStatus);
