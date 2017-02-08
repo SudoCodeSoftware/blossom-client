@@ -23,10 +23,11 @@ function loginInit() {
 
             else {
                 if (window.cordova.platformId == "browser") {
-                    facebookConnectPlugin.browserInit("303510073316531");
+                    facebookConnectPlugin.browserInit("303155660018639");
                 }
 
                 var fbLoginSuccess = function (userData) {
+                    console.log(userData);
                     globals.fbAuthResponse = userData.authResponse;
                     globals.accessToken = globals.fbAuthResponse.accessToken;
                     globals.userID = globals.fbAuthResponse.userID;
