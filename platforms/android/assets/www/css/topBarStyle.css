@@ -1,0 +1,87 @@
+#top-bar {
+    background: #16a085;
+    height: 16%;
+    width: 100%;
+    border-bottom: 2px solid #14947b;
+}
+
+.top-bar-section {
+    width: 22%;
+    height: 100%;
+    color: white;
+    font-size: 9vh;
+}
+.top-bar-section p {
+    position: relative;
+    top: 30%;
+}
+
+#settings-side {
+    text-align: right;
+    float: left;
+    cursor:pointer;
+}
+#settings-side:active {
+    color: #DEDEDE;
+}
+
+#messages-side, #settings-messages-side {
+    text-align: left;
+    float: right;
+    cursor:pointer;
+}
+#messages-side:active, #settings-messages-side:active {
+    color: #DEDEDE;
+}
+
+
+#go-left-side {
+    text-align: right;
+    float: left;
+    cursor:pointer;
+}
+#go-left-side:active {
+    color: #DEDEDE;
+}
+
+.messages-banner {
+    height: 16%;
+    width: 16vh;
+    display: block;
+    position: absolute;
+    top: 0;
+    left:0;
+    right:0;
+    cursor:pointer;
+    z-index: 5;
+    font-size: 13vh;
+    color: #14947b;
+}
+
+.send-to-bottom {
+    height: 90%;
+    width: 85%;
+    position: relative;
+    top: 10%;
+}
+
+
+#user-portrait {
+    background-color: white;
+	border-radius: 50%;
+    height: 16vh;
+    width: 16vh;
+    display: block;
+    position: absolute;
+    top: 3%;
+    left:0;
+    right:0;
+    border: 2px solid #14947b;
+    background-size: cover;
+    cursor:pointer;
+    z-index: 5;
+}
+#user-portrait:active {
+    -webkit-filter: grayscale; /*sepia, hue-rotate, invert....*/
+    -webkit-filter: brightness(90%);
+}

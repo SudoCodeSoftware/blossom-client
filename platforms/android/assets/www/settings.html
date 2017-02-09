@@ -1,0 +1,62 @@
+<div id="top-bar">
+    <div id="settings-messages-side" class="top-bar-section">
+        <p><i class="fa fa-arrow-right" aria-hidden="true"></i></p>
+    </div>
+</div>
+<div class="messages-banner centered">
+    <div class="send-to-bottom centered">
+        <p><i class="fa fa-sliders" aria-hidden="true"></i></p>
+    </div>
+</div>
+
+<div class="scroll-y-area centered">
+    <div class="space-5"></div>
+
+    <p class="text-centered">My date of birth is...</p>
+    <input type="date" placeholder="DOB" id="settings-DOB" class="userDOB centered feedback-input">
+    <br>
+    <br>
+
+    <p class="text-centered">I am...</p>
+    <select id="settings-identity-input" class="preferenceInput centered feedback-input">
+        <option value="" disabled selected>gender identity</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Non-Binary">Non-Binary</option>
+    </select>
+    <br>
+    <br>
+
+    <p class="text-centered">I am interested in chatting with...</p>
+    <br>
+    <div class="checkbox-area">
+        <input type="checkbox" id="settings-men-preference" /><label for="settings-men-preference">Men</label>
+        <br>
+        <input type="checkbox" id="settings-women-preference" /><label for="settings-women-preference">Women</label>
+        <br>
+        <input type="checkbox" id="settings-non-binary-preference" /><label for="settings-non-binary-preference">Non-Binary</label>
+    </div>
+
+    <br>
+
+    <a href="#" id="settings-delete-account" class="delete-account-button centered">Delete Account</a>
+</div>
+
+<div id="settings-delete-popup">
+    <div class="delete_account_poppup">
+      <br>
+      <h2 class="new_match_poppup_text popup_heading">Delete Account</h2>
+      <p class="new_match_poppup_text delete_account_poppup_text">Are you sure you want to delete your account? All of your settings and matches will be lost.</p>
+      <div class="space-5"></div>
+      <table>
+        <tr>
+          <td>
+            <a href="#" id="cancel-delete-account" class="profile-button profile-button-wide centered">cancel</a>
+          </td>
+          <td>
+            <a href="#" id="confirm-delete-account" class="profile-button profile-button-wide centered">delete</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+</div>

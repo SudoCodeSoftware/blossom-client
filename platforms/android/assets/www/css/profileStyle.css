@@ -1,0 +1,178 @@
+.user-profile-image {
+    color: white;
+    font-family: RegularText;
+    font-size: 5vh;
+    width: 100vw;
+    height: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: center;
+}
+
+.scroll-y-area-profile {
+    width:100%;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+}
+
+.exit-button {
+    z-index: 30;
+    margin-top: 1px;
+    margin-left: 5px;
+    color: white;
+    font-size: 15vw;
+    position: fixed;
+    text-shadow:
+   -3px -3px 0 #16a085,
+    3px -3px 0 #16a085,
+    -3px 3px 0 #16a085,
+     3px 3px 0 #16a085;
+}
+
+.exit-button:active {
+    color: #DEDEDE;
+}
+
+.age-box, .name-box {
+    width: 40%;
+    font-size: 10vw;
+    margin-top: 3%;
+    font-weight: bold;
+}
+
+
+.name-box {
+    float: left;
+    margin-left: 3%;
+}
+
+.age-box {
+    text-align: right;
+    float: right;
+    margin-right: 3%;
+}
+
+.uni-box {
+    text-align: left;
+    font-size: 7.3vw;
+    margin-top: 15%;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+.separator {
+    margin-top: 2vh;
+    width: 90vw;
+    height: 0.2vh;
+    background-color: black;
+}
+
+.description-box {
+    text-align: left;
+    font-size: 5vw;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+.profile-title {
+    margin-top: 3vh;
+    font-weight: bold;
+    font-size: 7vw;
+    text-align: center;
+}
+
+.society-list {
+    width: 90%;
+    font-size: 6vw;
+}
+
+.engulf {
+    width: 100%;
+    padding-left: 10%;
+}
+
+.delete-col {
+    color: #ED3B50;
+}
+
+.society-list li {
+    margin:0 0 1vh 0;
+}
+
+.profile-button {
+  	padding: 1vh;
+    text-align: center;
+    font-size: 5vw;
+	border-radius: 3px;
+	background: #16a085;
+  	color: white;
+  	text-decoration: none;
+}
+
+.profile-button-thin {
+    width: 10vw;
+}
+
+.profile-button-wide {
+    width: 20vw;
+}
+
+.profile-button-top-margin {
+    margin-top: 10px;
+}
+
+
+.profile-feedback-input {
+	color:#3c3c3c;
+	font-family: RegularText;
+	font-size: 2.5vh;
+	border-radius: 0;
+	line-height: 100%;
+	background-color: #fbfbfb;
+	padding: 0px 0px 0px 13%;
+	margin-top: 10px;
+	width: 70%;
+   height: 7vh;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+    opacity: 0.9;
+    background-size: 5vh;
+	background-position: 4% 50%;
+	background-repeat: no-repeat;
+    box-shadow: none;
+    outline: none;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+.description-input {
+    background-color: #fbfbfb;
+    margin-left: 5%;
+    margin-top: 10px;
+    font-size: 2.5vh;
+    width: 90%;
+    height: 20vh;
+    border-radius: 5px;
+    border-width: 0;
+    resize: none;
+    cursor: default;
+   -webkit-user-select: none;
+   -webkit-touch-callout: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -o-user-select: none;
+}
+
+.description-input:focus {
+   outline: none;
+}

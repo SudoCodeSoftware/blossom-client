@@ -105,6 +105,7 @@ function verifyAccessToken() {
         },
         url: SERVER_ADDRESS + '/login.php',
         success: function(data) {
+            console.log(data);
             globals.profilePicURL = data[1];
             //pageTransition("signup/page1.html", signupPage1Init);
             

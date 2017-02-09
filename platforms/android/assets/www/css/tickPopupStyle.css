@@ -1,0 +1,59 @@
+.new_match_poppup {
+    left: 2vw;
+    top: 30vh;
+    width:95.4vw;
+    height:34vh;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    box-shadow: 5px 1px 5px rgba(212,213,215,0.5);
+}
+
+.popup_heading {
+    font-size: 5vh;
+    font-weight: bold;
+}
+
+.delete_account_poppup {
+    left: 10vw;
+    top: 30vh;
+    width:80vw;
+    height:30vh;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    box-shadow: 5px 1px 5px rgba(212,213,215,0.5);
+}
+
+.delete_account_poppup table {
+    width: 100%;
+}
+
+#cancel-delete-account {
+    background-color: #666;
+}
+
+#confirm-delete-account {
+    background-color: #ED3B50;
+}
+
+.new_match_poppup_user_image {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 15vh;
+    width: 15vh;
+    display: block;
+    background-color: white;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.new_match_poppup_text {
+    text-align: center;
+    font-size: 2.8vh;
+}
+
+.delete_account_poppup_text {
+    margin: 10px;
+    font-size: 2.8vh;
+}
