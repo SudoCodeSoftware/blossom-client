@@ -12,6 +12,8 @@ function signupPage2Init() {
             },
             url: SERVER_ADDRESS + '/user_details.php',
             success: function(data) {
+                console.log(data);
+                globals.verificationToken = data;
                 pageTransition("signup/page3.html", signupPage3Init);
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {

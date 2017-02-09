@@ -1,5 +1,6 @@
 function signupPage3Init() {
     globals.currentPage = "SIGNUP_P3";
+    $("#signup-p3-code-input").val(globals.verificationToken);
     
     $("#signup-p3-next").click(function() {
         $.ajax({
