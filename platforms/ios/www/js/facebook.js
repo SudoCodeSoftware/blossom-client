@@ -1,5 +1,5 @@
 // APP FACEBOOK ID
-var appId = '303510073316531';
+var appId = '303155660018639';
 //CONFIGURE URL IN FACEBOOK APP->Internet por celular->Mobile Site URL
 var redirectUrl = '';
 // APP FACEBOOK PERMISSIONS

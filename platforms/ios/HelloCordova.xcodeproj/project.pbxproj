@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -13,12 +12,12 @@
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
-		3757A7F8C22D4973A4509ED0 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FE7FD4DFF42DEB0897A56 /* FacebookConnectPlugin.m */; };
-		4A30D1A7152F4955B6F4001B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56138CB0C15429793B9BE16 /* FBSDKShareKit.framework */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
-		9F83092FC9D246D6B7270BB1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76FB197443914086B56BF6B2 /* Bolts.framework */; };
-		C5CFC774E0434EFD8A7FAFC6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2909B95D4C843A98B4DB16C /* FBSDKLoginKit.framework */; };
-		E2D6A91B528048828B4578C0 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52D8942546344178E425472 /* FBSDKCoreKit.framework */; };
+		12F20641C2F8433C963E67D7 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB442EFDF6F4DE287923D5F /* FacebookConnectPlugin.m */; };
+		7F5BF4082CC64708B4441E22 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B3EAE3864346F7A733998F /* Bolts.framework */; };
+		6CE1EA5442A444A999E709B2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9064A8CEA0254AA6A96CC8A5 /* FBSDKCoreKit.framework */; };
+		39D1A6432C18479F9BFEF464 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B1192F7BEE4AB193C05BB9 /* FBSDKLoginKit.framework */; };
+		4932F8B9215A459F99176F81 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D66AB880A3E94B6F8C124460 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HelloCordova/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		1B5FE7FD4DFF42DEB0897A56 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = FacebookConnectPlugin.m; path = "cordova-plugin-facebook4/FacebookConnectPlugin.m"; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* HelloCordova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloCordova.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,17 +53,18 @@
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* HelloCordova-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HelloCordova-Prefix.pch"; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = HelloCordova/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
-		76FB197443914086B56BF6B2 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "HelloCordova/Plugins/cordova-plugin-facebook4/Bolts.framework"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* HelloCordova-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "HelloCordova-Info.plist"; path = "HelloCordova/HelloCordova-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
-		9871CEA8963849718F67F58E /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = FacebookConnectPlugin.h; path = "cordova-plugin-facebook4/FacebookConnectPlugin.h"; sourceTree = "<group>"; };
-		A2909B95D4C843A98B4DB16C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "HelloCordova/Plugins/cordova-plugin-facebook4/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		B56138CB0C15429793B9BE16 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "HelloCordova/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		DDAC906B1E48801600BAF930 /* HelloCordova.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = HelloCordova.entitlements; path = HelloCordova/HelloCordova.entitlements; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		F52D8942546344178E425472 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "HelloCordova/Plugins/cordova-plugin-facebook4/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloCordova/config.xml; sourceTree = "<group>"; };
+		ECB442EFDF6F4DE287923D5F /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; name = "FacebookConnectPlugin.m"; path = "cordova-plugin-facebook4/FacebookConnectPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		223EBA791816469099CAF81F /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; name = "FacebookConnectPlugin.h"; path = "cordova-plugin-facebook4/FacebookConnectPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		43B3EAE3864346F7A733998F /* Bolts.framework */ = {isa = PBXFileReference; name = "Bolts.framework"; path = "HelloCordova/Plugins/cordova-plugin-facebook4/Bolts.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		9064A8CEA0254AA6A96CC8A5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; name = "FBSDKCoreKit.framework"; path = "HelloCordova/Plugins/cordova-plugin-facebook4/FBSDKCoreKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		75B1192F7BEE4AB193C05BB9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; name = "FBSDKLoginKit.framework"; path = "HelloCordova/Plugins/cordova-plugin-facebook4/FBSDKLoginKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		D66AB880A3E94B6F8C124460 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; name = "FBSDKShareKit.framework"; path = "HelloCordova/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,10 +73,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
-				9F83092FC9D246D6B7270BB1 /* Bolts.framework in Frameworks */,
-				E2D6A91B528048828B4578C0 /* FBSDKCoreKit.framework in Frameworks */,
-				C5CFC774E0434EFD8A7FAFC6 /* FBSDKLoginKit.framework in Frameworks */,
-				4A30D1A7152F4955B6F4001B /* FBSDKShareKit.framework in Frameworks */,
+				7F5BF4082CC64708B4441E22 /* Bolts.framework in Frameworks */,
+				6CE1EA5442A444A999E709B2 /* FBSDKCoreKit.framework in Frameworks */,
+				39D1A6432C18479F9BFEF464 /* FBSDKLoginKit.framework in Frameworks */,
+				4932F8B9215A459F99176F81 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,10 +148,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				76FB197443914086B56BF6B2 /* Bolts.framework */,
-				F52D8942546344178E425472 /* FBSDKCoreKit.framework */,
-				A2909B95D4C843A98B4DB16C /* FBSDKLoginKit.framework */,
-				B56138CB0C15429793B9BE16 /* FBSDKShareKit.framework */,
+				43B3EAE3864346F7A733998F /* Bolts.framework */,
+				9064A8CEA0254AA6A96CC8A5 /* FBSDKCoreKit.framework */,
+				75B1192F7BEE4AB193C05BB9 /* FBSDKLoginKit.framework */,
+				D66AB880A3E94B6F8C124460 /* FBSDKShareKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,8 +177,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				1B5FE7FD4DFF42DEB0897A56 /* FacebookConnectPlugin.m */,
-				9871CEA8963849718F67F58E /* FacebookConnectPlugin.h */,
+				ECB442EFDF6F4DE287923D5F /* FacebookConnectPlugin.m */,
+				223EBA791816469099CAF81F /* FacebookConnectPlugin.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -305,7 +304,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				3757A7F8C22D4973A4509ED0 /* FacebookConnectPlugin.m in Sources */,
+				12F20641C2F8433C963E67D7 /* FacebookConnectPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +333,10 @@
 				DEVELOPMENT_TEAM = 2A9AZU9A2Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
+					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
+					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
+					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
 					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
 					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
 					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
@@ -367,6 +370,10 @@
 				DEVELOPMENT_TEAM = 2A9AZU9A2Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
+					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
+					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
+					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
 					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
 					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",
 					"\"HelloCordova/Plugins/cordova-plugin-facebook4\"",

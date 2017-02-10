@@ -35,13 +35,13 @@
 #signup-p2-emailInput {
 	background-image: url(../res/assets/icons/email.png);
 }
-#facultyInput, #profile-faculty-input {
+.facultyInput, #profile-faculty-input {
 	background-image: url(../res/assets/icons/faculty.png);
 }
-#degreeInput, #profile-degree-input {
+.degreeInput, #profile-degree-input {
 	background-image: url(../res/assets/icons/degree.png);
 }
-#yearInput {
+.yearInput {
 	background-image: url(../res/assets/icons/yearofstudy.png);
 }
 .codeInput {

@@ -47,7 +47,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<string name=\"fb_app_id\">303510073316531</string>",
+                            "xml": "<string name=\"fb_app_id\">303155660018639</string>",
                             "count": 1
                         },
                         {
@@ -82,9 +82,9 @@
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
         "cordova-plugin-facebook4": {
-            "APP_ID": "303510073316531",
+            "APP_ID": "303155660018639",
             "APP_NAME": "Blossom",
-            "PACKAGE_NAME": "io.cordova.hellocordova"
+            "PACKAGE_NAME": "com.sudo_code.blossom"
         }
     },
     "dependent_plugins": {},

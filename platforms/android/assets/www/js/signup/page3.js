@@ -13,7 +13,15 @@ function signupPage3Init() {
             url: SERVER_ADDRESS + '/user_details.php',
             success: function(data) {
                 console.log(data);
-                pageTransition("signup/page4.html", signupPage4Init);
+                
+                if (data[0] == 0) {    //Correct code
+                    globals.userUniversity = data[1];
+                    pageTransition("signup/page4.html", signupPage4Init);
+                }
+                
+                else {
+                    //Tell them they got it wrong
+                }
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus)

@@ -62,7 +62,9 @@ function settingsInit() {
             },
             url: SERVER_ADDRESS + '/settings.php',
             success: function(data) {
-
+                $("#settings-delete-popup").hide();
+                
+                pageTransition("login.html", loginInit);
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
            console.log(textStatus);
