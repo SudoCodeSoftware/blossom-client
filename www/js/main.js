@@ -26,6 +26,12 @@ function initApp() {
     }
 }
 
+function getAgeFromBirthdate(birthday) {
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
 function sanitizeString(string) {
     var entityMap = {
         '&': '&amp;',

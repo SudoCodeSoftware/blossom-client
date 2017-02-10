@@ -227,7 +227,7 @@ function profileInit() {
         success: function(data) {
             $("#profile-image").css("background-image", "url('" + data.cover + "')");
             $("#profile-name").html(data.username);
-            $("#profile-age").html(data.age);
+            $("#profile-age").html(getAgeFromBirthdate(new Date(data.age)));    //data.age is a DOB
             $("#profile-degree").html(data.degree);
             $("#profile-uni").html(data.uni);
             $("#profile-description").html(data.description);
