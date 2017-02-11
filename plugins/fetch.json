@@ -17,5 +17,13 @@
             "APP_ID": "303155660018639",
             "APP_NAME": "Blossom"
         }
+    },
+    "cordova-plugin-keyboard": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-keyboard"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

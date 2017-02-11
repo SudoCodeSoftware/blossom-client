@@ -18,6 +18,7 @@
 		6CE1EA5442A444A999E709B2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9064A8CEA0254AA6A96CC8A5 /* FBSDKCoreKit.framework */; };
 		39D1A6432C18479F9BFEF464 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B1192F7BEE4AB193C05BB9 /* FBSDKLoginKit.framework */; };
 		4932F8B9215A459F99176F81 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D66AB880A3E94B6F8C124460 /* FBSDKShareKit.framework */; };
+		3E517B2365D944DFA69FFA48 /* CDVKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E1187C4E03A44D3AACB37820 /* CDVKeyboard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		9064A8CEA0254AA6A96CC8A5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; name = "FBSDKCoreKit.framework"; path = "HelloCordova/Plugins/cordova-plugin-facebook4/FBSDKCoreKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		75B1192F7BEE4AB193C05BB9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; name = "FBSDKLoginKit.framework"; path = "HelloCordova/Plugins/cordova-plugin-facebook4/FBSDKLoginKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		D66AB880A3E94B6F8C124460 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; name = "FBSDKShareKit.framework"; path = "HelloCordova/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		E1187C4E03A44D3AACB37820 /* CDVKeyboard.m */ = {isa = PBXFileReference; name = "CDVKeyboard.m"; path = "cordova-plugin-keyboard/CDVKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		D6013A7C05264B839EEE096F /* CDVKeyboard.h */ = {isa = PBXFileReference; name = "CDVKeyboard.h"; path = "cordova-plugin-keyboard/CDVKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 			children = (
 				ECB442EFDF6F4DE287923D5F /* FacebookConnectPlugin.m */,
 				223EBA791816469099CAF81F /* FacebookConnectPlugin.h */,
+				E1187C4E03A44D3AACB37820 /* CDVKeyboard.m */,
+				D6013A7C05264B839EEE096F /* CDVKeyboard.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -305,6 +310,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				12F20641C2F8433C963E67D7 /* FacebookConnectPlugin.m in Sources */,
+				3E517B2365D944DFA69FFA48 /* CDVKeyboard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
