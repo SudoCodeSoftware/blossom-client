@@ -74,12 +74,8 @@ module.exports.run = function (runOptions) {
         if (useDevice) {
             return checkDeviceConnected().then(function () {
                 appPath = path.join(projectPath, 'build', 'device', projectName + '.app');
-                var extraArgs = [];
-                if (runOptions.argv) {
-                     // argv.slice(2) removes node and run.js, filterSupportedArgs removes the run.js args
-                     extraArgs = filterSupportedArgs(runOptions.argv.slice(2));
-                }
-                return deployToDevice(appPath, runOptions.target, extraArgs);
+                // argv.slice(2) removes node and run.js, filterSupportedArgs removes the run.js args
+                return deployToDevice(appPath, runOptions.target, filterSupportedArgs(runOptions.argv.slice(2)));
             }, function () {
                 // if device connection check failed use emulator then
                 return deployToSim(appPath, runOptions.target);

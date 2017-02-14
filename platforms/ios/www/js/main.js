@@ -11,10 +11,26 @@ $(document).ready(function() {
     
     globals.profile = {};
     
+    waitForKeyboardToDeignToJoinUs();
+    
+    initApp();
+    
     //if (device.platform != "browser") {
-        initApp();  //This happens in statusChangeCallback for browser
+    //    initApp();  //This happens in statusChangeCallback for browser
     //}
 });
+
+function waitForKeyboardToDeignToJoinUs() {
+    if (typeof(Keyboard) == "undefined") {
+        setTimeout(function() {
+            waitForKeyboardToDeignToJoinUs();
+        }, 250);
+    }
+
+    else {
+        Keyboard.shrinkView(true);
+    }
+}
 
 function initApp() {
     if (globals.accessToken == undefined || globals.userID == undefined) {
