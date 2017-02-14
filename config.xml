@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.sudo-code.blossom" version="0.3.1a" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Blossom</name>
+<widget id="com.sudocode.blossom" version="0.3.1a" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>HelloCordova</name>
     <description>
         Blossom
     </description>
@@ -24,4 +24,5 @@
         <variable name="APP_ID" value="303155660018639" />
         <variable name="APP_NAME" value="Blossom" />
     </plugin>
+    <engine name="android" spec="~6.0.0" />
 </widget>

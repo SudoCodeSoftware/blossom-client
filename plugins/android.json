@@ -10,10 +10,13 @@
         "cordova-plugin-facebook4": {
             "APP_ID": "303155660018639",
             "APP_NAME": "Blossom",
-            "PACKAGE_NAME": "com.sudo_code.blossom"
+            "PACKAGE_NAME": "com.sudocode.blossom"
         },
         "cordova-plugin-keyboard": {
-            "PACKAGE_NAME": "com.sudo_code.blossom"
+            "PACKAGE_NAME": "com.sudocode.blossom"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.sudocode.blossom"
         }
     },
     "dependent_plugins": {}

@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.sudo_code.blossom;
+package com.sudocode.blossom;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
