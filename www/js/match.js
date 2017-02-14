@@ -107,6 +107,7 @@ function matchInit() {
         if ($("#match-card-1").is(":visible")) {
             $("#card-2-name").html(matches[0].name);
             $("#card-2-age").html(matches[0].age);
+            $("#card-2-course").html(matches[0].degree);
             $("#card-2-image").css("background-image", "url('" + matches[0].photo + "')");
 
             $("#card-2-image").click(function() {
@@ -143,6 +144,7 @@ function matchInit() {
         else {
             $("#card-1-name").html(matches[0].name);
             $("#card-1-age").html(matches[0].age);
+            $("#card-1-course").html(matches[0].degree);
             $("#card-1-image").css("background-image", "url('" + matches[0].photo + "')");
 
             $("#card-1-image").click(function() {
