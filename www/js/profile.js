@@ -62,7 +62,7 @@ function profileInit() {
                console.log(textStatus);
             });
 
-            $("#profile-degree").html($("#profile-degree-input").find(":selected").text());
+            $("#profile-degree").html(sanitizeString($("#profile-degree-input").find(":selected").text()));
             $("#profile-studying-uni-change").html("change");
 
             $("#profile-faculty-input").hide();
@@ -110,7 +110,7 @@ function profileInit() {
         }
 
         else { //We're activating edit mode
-            $("#profile-description-input").val($("#profile-description").html());
+            $("#profile-description-input").val(sanitizeString($("#profile-description").html()));
             $("#profile-description-input").show();
             $("#profile-description").hide();
             $("#profile-description-change").html("submit");
@@ -226,11 +226,11 @@ function profileInit() {
         url: SERVER_ADDRESS + '/settings.php',
         success: function(data) {
             $("#profile-image").css("background-image", "url('" + data.cover + "')");
-            $("#profile-name").html(data.username);
-            $("#profile-age").html(getAgeFromBirthdate(new Date(data.age)));    //data.age is a DOB
-            $("#profile-degree").html(data.degree);
-            $("#profile-uni").html(data.uni);
-            $("#profile-description").html(data.description);
+            $("#profile-name").html(sanitizeString(data.username));
+            $("#profile-age").html(sanitizeString(getAgeFromBirthdate(new Date(data.age))));    //data.age is a DOB
+            $("#profile-degree").html(sanitizeString(data.degree));
+            $("#profile-uni").html(sanitizeString(data.uni));
+            $("#profile-description").html(sanitizeString(data.description));
 
             userUniversity = data.uni;
             userSocieties = data.societies.split(String.fromCharCode(31));
