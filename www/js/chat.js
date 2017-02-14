@@ -4,7 +4,7 @@ function chatInit() {
     var interval = null;    //Variable for the checking for new messages polling
     var currentMessageMarker = -1;    //How many messages from the oldest we have not got
     
-    $("#contact-name").html(globals.messages.contactName);
+    $("#contact-name").html(sanitizeString(globals.messages.contactName));
     $("#contact-pic").css("background-image", "url('" + globals.messages.contactImgURL + "')");
     
     function appendMessages(data) {
