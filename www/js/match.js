@@ -104,7 +104,15 @@ function matchInit() {
         //There are two cards, one being visible, the other one
         //being the buffer card that has everything loaded into it
         //before the cards being switched
-        if ($("#match-card-1").is(":visible")) {
+        if (matches[0] == "0") {
+            $("#match-card-1").hide();
+            $("#match-card-2").hide();
+            
+            $("#download-status").html("No more matches");
+            $("#match-loading-spinner").hide();
+        }
+        
+        else if ($("#match-card-1").is(":visible")) {
             $("#card-2-name").html(sanitizeString(matches[0].name));
             $("#card-2-age").html(sanitizeString(getAgeFromBirthdate(new Date(matches[0].age))));
             $("#card-2-course").html(sanitizeString(matches[0].degree));
