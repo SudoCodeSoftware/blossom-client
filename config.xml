@@ -25,4 +25,8 @@
         <variable name="APP_NAME" value="Blossom" />
     </plugin>
     <engine name="android" spec="~6.0.0" />
+	<preference name="DisallowOverscroll" value="true" />
+	<preference name="UIWebViewBounce" value="false" />
+	<preference name="webviewbounce" value="false" />
+	
 </widget>
