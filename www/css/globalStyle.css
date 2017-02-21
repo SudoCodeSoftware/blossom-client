@@ -22,3 +22,16 @@ body {
     width: 100%;
     background-color: #eeeeef;
 }
+
+.modalOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.3); /* black semi-transparent */
+    z-index: 1000;   /* on top of everything (100 is too low) */
+}

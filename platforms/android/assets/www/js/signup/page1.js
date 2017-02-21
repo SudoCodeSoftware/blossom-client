@@ -6,6 +6,8 @@ function signupPage1Init() {
     //The sign up button on the sign up page was pressed
     $("#signup-p1-next").click(function() {
         if ($("#signup-p1-DOB").val() != "" && $("#signup-p1-gender-input").val() != null) {
+            $("body").append('<div class="modalOverlay">');
+            
             $.ajax({
                 type: "POST",
                 dataType: "json",

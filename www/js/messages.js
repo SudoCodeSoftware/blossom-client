@@ -39,6 +39,8 @@ function messagesInit() {
         }
     }
     
+    showLoader();
+    
     //Initial message check
     $.ajax({
         type: "POST",
@@ -111,6 +113,8 @@ function messagesInit() {
             setTimeout(function(){ 
                 checkNewMessages(); 
             }, 1000);
+            
+            hideLoader();
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
             console.log(textStatus);

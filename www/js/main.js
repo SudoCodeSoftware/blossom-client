@@ -65,7 +65,18 @@ function sanitizeString(string) {
     });
 }
 
+function showLoader() {
+    $("body").append('<div id="loading-overlay" class="modalOverlay">');
+    $("#loading-overlay").append('<div class="main-loader centered"></div>');
+}
+
+function hideLoader() {
+    $("#loading-overlay").remove();
+}
+
 function pageTransition(pageURL, initFunction) {
+    hideLoader();
+    
     if ($("#page1").is(":visible")) {
         $("#page2").load(pageURL, function() {
             initFunction();

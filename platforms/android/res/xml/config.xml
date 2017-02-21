@@ -16,7 +16,7 @@
     <feature name="Keyboard">
         <param name="android-package" onload="true" value="org.apache.cordova.labs.keyboard.Keyboard" />
     </feature>
-    <name>HelloCordova</name>
+    <name>Blossom</name>
     <description>
         Blossom
     </description>
