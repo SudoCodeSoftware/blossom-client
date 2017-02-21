@@ -45,6 +45,9 @@ function signupPage4Init() {
         if ($("#signup-p4-faculty-input").val() != null &&
             $("#signup-p4-degree-input").val() != null &&
             $("#signup-p4-year-input").val() != null) {
+            
+            showLoader();
+            
             $.ajax({
                 type: "POST",
                 dataType: "json",

@@ -214,7 +214,9 @@ function profileInit() {
             $(this).parent().remove();
         });
     }
-
+    
+    showLoader();
+    
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -281,6 +283,8 @@ function profileInit() {
                     for (var i = 0; i < data.length; i++) {
                         $("#profile-faculty-input").append('<option value="faculty-code">' + data[i] + '</option>');
                     }
+                    
+                    hideLoader();
                 },
             }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
                console.log(textStatus);

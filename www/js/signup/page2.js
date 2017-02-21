@@ -3,6 +3,8 @@ function signupPage2Init() {
     
     $("#signup-p2-next").click(function() {
         if ($("#signup-p2-emailInput").val() != "") {
+            showLoader();
+            
             $.ajax({
                 type: "POST",
                 dataType: "json",

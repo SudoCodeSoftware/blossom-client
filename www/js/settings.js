@@ -120,6 +120,8 @@ function settingsInit() {
         sendGenderPreferences();
     });
     
+    showLoader();
+    
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -151,6 +153,8 @@ function settingsInit() {
             if (genderPreferences.indexOf("Non-Binary") != -1) {
                 $("#settings-non-binary-preference").prop("checked", true);
             }
+            
+            hideLoader();
         },
     }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
        console.log(textStatus);
