@@ -104,9 +104,19 @@ function matchInit() {
         //There are two cards, one being visible, the other one
         //being the buffer card that has everything loaded into it
         //before the cards being switched
-        if ($("#match-card-1").is(":visible")) {
-            $("#card-2-name").html(matches[0].name);
-            $("#card-2-age").html(matches[0].age);
+        if (matches[0] == "0") {
+            $("#match-card-1").hide();
+            $("#match-card-2").hide();
+            
+            $("#download-status").html("No more matches");
+            $("#match-loading-spinner").hide();
+        }
+        
+        else if ($("#match-card-1").is(":visible")) {
+            $("#card-2-name").html(sanitizeString(matches[0].name));
+            $("#card-2-age").html(sanitizeString(getAgeFromBirthdate(new Date(matches[0].age))));
+            $("#card-2-course").html(sanitizeString(matches[0].degree));
+            $("#card-2-uni").html(sanitizeString(matches[0].uni));
             $("#card-2-image").css("background-image", "url('" + matches[0].photo + "')");
 
             $("#card-2-image").click(function() {
@@ -141,8 +151,10 @@ function matchInit() {
         }
 
         else {
-            $("#card-1-name").html(matches[0].name);
-            $("#card-1-age").html(matches[0].age);
+            $("#card-1-name").html(sanitizeString(matches[0].name));
+            $("#card-1-age").html(sanitizeString(getAgeFromBirthdate(new Date(matches[0].age))));
+            $("#card-1-course").html(sanitizeString(matches[0].degree));
+            $("#card-1-uni").html(sanitizeString(matches[0].uni));
             $("#card-1-image").css("background-image", "url('" + matches[0].photo + "')");
 
             $("#card-1-image").click(function() {
