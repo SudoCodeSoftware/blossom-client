@@ -121,6 +121,8 @@ function profileInit() {
     });
 
     $("#profile-faculty-input").change(function() {
+        showLoader();
+        
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -137,6 +139,8 @@ function profileInit() {
                 for (var i = 0; i < data.length; i++) {
                     $("#profile-degree-input").append('<option value="degree-code">' + data[i] + '</option>');
                 }
+                
+                hideLoader();
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
            console.log(textStatus);
