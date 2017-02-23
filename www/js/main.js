@@ -48,6 +48,7 @@ function getAgeFromBirthdate(birthday) {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
 
+//Makes the string safe to stick in HTML
 function sanitizeString(string) {
     var entityMap = {
         '&': '&amp;',
@@ -63,6 +64,15 @@ function sanitizeString(string) {
     return String(string).replace(/[&<>"'`=\/]/g, function (s) {
         return entityMap[s];
     });
+}
+
+//Undoes sanitization (for displaying, for example, in edit textboxes)
+function unsanitizeString(string) {
+    var parser = new DOMParser;
+    var dom = parser.parseFromString(
+        '<!doctype html><body>' + string,
+        'text/html');
+    return dom.body.textContent;
 }
 
 function showLoader() {

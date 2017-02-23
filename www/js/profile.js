@@ -110,7 +110,10 @@ function profileInit() {
         }
 
         else { //We're activating edit mode
-            $("#profile-description-input").val(sanitizeString($("#profile-description").html()));
+            
+            //Unsanitize, because sanitization replaces & with &amp, and we don't want &amp
+            //showing up in the textbox
+            $("#profile-description-input").val(unsanitizeString($("#profile-description").html()));
             $("#profile-description-input").show();
             $("#profile-description").hide();
             $("#profile-description-change").html("submit");
