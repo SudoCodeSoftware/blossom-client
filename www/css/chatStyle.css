@@ -165,15 +165,15 @@
 
 .name-banner {
     height: 8%;
-    width: 16vh;
+    width: 100px;
     display: block;
     position: absolute;
-    top: 7.3vh;
+    top: 40px;
     left:0;
     right:0;
     cursor:pointer;
     z-index: 5;
-    font-size: 5vh;
+    font-size: 35px;
     text-align: center;
     color: white;
 }
