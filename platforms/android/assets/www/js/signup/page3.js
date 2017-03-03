@@ -3,6 +3,8 @@ function signupPage3Init() {
     
     $("#signup-p3-next").click(function() {
         if ($("#signup-p3-code-input").val() != "") {
+            showLoader();
+            
             $.ajax({
                 type: "POST",
                 dataType: "json",
@@ -21,6 +23,8 @@ function signupPage3Init() {
                     }
 
                     else {
+                        hideLoader();
+                        
                         //Tell them they got it wrong
                     }
                 },

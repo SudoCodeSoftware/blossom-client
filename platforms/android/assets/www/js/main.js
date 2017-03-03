@@ -48,6 +48,7 @@ function getAgeFromBirthdate(birthday) {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
 
+//Makes the string safe to stick in HTML
 function sanitizeString(string) {
     var entityMap = {
         '&': '&amp;',
@@ -65,7 +66,27 @@ function sanitizeString(string) {
     });
 }
 
+//Undoes sanitization (for displaying, for example, in edit textboxes)
+function unsanitizeString(string) {
+    var parser = new DOMParser;
+    var dom = parser.parseFromString(
+        '<!doctype html><body>' + string,
+        'text/html');
+    return dom.body.textContent;
+}
+
+function showLoader() {
+    $("body").append('<div id="loading-overlay" class="modalOverlay">');
+    $("#loading-overlay").append('<div class="main-loader centered"></div>');
+}
+
+function hideLoader() {
+    $("#loading-overlay").remove();
+}
+
 function pageTransition(pageURL, initFunction) {
+    hideLoader();
+    
     if ($("#page1").is(":visible")) {
         $("#page2").load(pageURL, function() {
             initFunction();

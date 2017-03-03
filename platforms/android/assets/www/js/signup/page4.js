@@ -2,6 +2,8 @@ function signupPage4Init() {
     globals.currentPage = "SIGNUP_P4";
     
     $("#signup-p4-faculty-input").change(function() {
+        showLoader();
+        
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -17,6 +19,8 @@ function signupPage4Init() {
                 for (var i = 0; i < data.length; i++) {
                     $("#signup-p4-degree-input").append('<option value="degree-code">' + data[i] + '</option>');
                 }
+                
+                hideLoader();
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
            console.log(textStatus);
@@ -45,6 +49,9 @@ function signupPage4Init() {
         if ($("#signup-p4-faculty-input").val() != null &&
             $("#signup-p4-degree-input").val() != null &&
             $("#signup-p4-year-input").val() != null) {
+            
+            showLoader();
+            
             $.ajax({
                 type: "POST",
                 dataType: "json",

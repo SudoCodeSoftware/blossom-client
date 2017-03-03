@@ -6,7 +6,7 @@
 }
 
 .section-description {
-    height: 4%;    
+    height: 4%;
     font-weight: 800;
     font-size: 150%;
     padding-left: 5%;
@@ -52,7 +52,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    background-position: center; 
+    background-position: center;
 }
 
 .image-info {
@@ -81,7 +81,7 @@
 #bottom-bar {
     position: fixed;
     width: 100%;
-    height: 14%;
+    height: 75px;
     bottom: 0px;
 }
 #tick {
@@ -90,14 +90,14 @@
 }
 #tick:active {
     color: #14947b;
-} 
+}
 #cross {
     float: left;
     cursor:pointer;
 }
 #cross:active {
     color: #14947b;
-} 
+}
 
 
 .selection-area {
@@ -105,7 +105,7 @@
     color: #16a085;
     width: 50%;
     height: 100%;
-    font-size: 10vh;
+    font-size: 70px;
 }
 
 

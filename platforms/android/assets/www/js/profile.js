@@ -110,7 +110,10 @@ function profileInit() {
         }
 
         else { //We're activating edit mode
-            $("#profile-description-input").val(sanitizeString($("#profile-description").html()));
+            
+            //Unsanitize, because sanitization replaces & with &amp, and we don't want &amp
+            //showing up in the textbox
+            $("#profile-description-input").val(unsanitizeString($("#profile-description").html()));
             $("#profile-description-input").show();
             $("#profile-description").hide();
             $("#profile-description-change").html("submit");
@@ -121,6 +124,8 @@ function profileInit() {
     });
 
     $("#profile-faculty-input").change(function() {
+        showLoader();
+        
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -137,6 +142,8 @@ function profileInit() {
                 for (var i = 0; i < data.length; i++) {
                     $("#profile-degree-input").append('<option value="degree-code">' + data[i] + '</option>');
                 }
+                
+                hideLoader();
             },
         }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
            console.log(textStatus);
@@ -214,7 +221,9 @@ function profileInit() {
             $(this).parent().remove();
         });
     }
-
+    
+    showLoader();
+    
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -281,6 +290,8 @@ function profileInit() {
                     for (var i = 0; i < data.length; i++) {
                         $("#profile-faculty-input").append('<option value="faculty-code">' + data[i] + '</option>');
                     }
+                    
+                    hideLoader();
                 },
             }).fail(function(dunnoWhatThisArgumentDoes, textStatus) {
                console.log(textStatus);
