@@ -116,8 +116,8 @@
 .scroll-y-area-chat {
     width:100%;
     position: fixed;
-    top: 16.3%;
-    height: 77%;
+    top: 90px;
+	bottom: 0;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
@@ -132,7 +132,7 @@
 }
 
 .chat_box .text_input {
-    font-size: 3vh;
+    font-size: 20px;
     width: 77.7%;
     height: 100%;
     padding: 2%;
