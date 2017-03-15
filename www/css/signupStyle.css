@@ -8,7 +8,7 @@
 	padding: 0px 0px 0px 13%;
 	margin-top: 2vh;
 	width: 70%;
-    height: 8vh;
+    height: 45px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
@@ -58,7 +58,7 @@
 .form-button {
     font-family: SpecialText;
     display: block;
-    height: 8vh;
+    height: 45px;
     width: 80%;
     font-size: 120%;
     position:relative;
