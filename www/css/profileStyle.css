@@ -26,7 +26,7 @@
     margin-left: 5px;
     color: white;
     font-size: 15vw;
-    position: fixed;
+    position: absolute;
     text-shadow:
    -3px -3px 0 #16a085,
     3px -3px 0 #16a085,
